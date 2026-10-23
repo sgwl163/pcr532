@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+<resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>1.3</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="已重置并新建卡" xml:space="preserve"><value>已重置并新建卡。</value></data>
+  <data name="Information" xml:space="preserve"><value>Information</value></data>
+  <data name="该扇区访问控制位无效_写入将会损坏卡片_请重新设置" xml:space="preserve"><value>该扇区访问控制位无效，写入将会损坏卡片，请重新设置。
+</value></data>
+  <data name="请检查接线是否正确_驱动是否正常安装_设备电源是否已经打开_" xml:space="preserve"><value>请检查接线是否正确/驱动是否正常安装/设备电源是否已经打开（对于具有电源开关的型号）。</value></data>
+  <data name="该扇区访问控制位无效_写入将会损坏卡片_已重新设置" xml:space="preserve"><value>该扇区访问控制位无效，写入将会损坏卡片，已重新设置。
+</value></data>
+  <data name="密钥破解时间很长_你先洗洗睡" xml:space="preserve"><value>密钥破解时间很长，开始了，你就准备洗洗睡吧。还没准备好？那就取消！</value></data>
+  <data name="将要写入的文件存在错误_请用高级模式中的Hex工具打开查看" xml:space="preserve"><value>将要写入的文件存在错误，请用高级模式中的Hex工具打开查看。</value></data>
+  <data name="MFD文件_mfd_DUMP文件_dump" xml:space="preserve"><value>MFD文件|*.mfd|DUMP文件|*.dump</value></data>
+  <data name="正在检索是否存在key_mfd" xml:space="preserve"><value>正在检索是否存在key.mfd…</value></data>
+  <data name="显示扇区" xml:space="preserve"><value>显示扇区</value></data>
+  <data name="_Nonce收集完毕" xml:space="preserve"><value>##Nonce收集完毕##</value></data>
+  <data name="本地版本" xml:space="preserve"><value>本地版本 </value></data>
+  <data name="打开出错" xml:space="preserve"><value>打开出错</value></data>
+  <data name="开始执行写卡号" xml:space="preserve"><value>*********开始执行写卡号*********</value></data>
+  <data name="MFD文件_mfd_dump" xml:space="preserve"><value>MFD文件|*.mfd;*.dump;*.bin;*.txt*;*.TXT</value></data>
+  <data name="提示信息" xml:space="preserve"><value>提示信息</value></data>
+  <data name="请先导入数据" xml:space="preserve"><value>请先导入数据</value></data>
+  <data name="检测卡片" xml:space="preserve"><value>**********开始检测卡片**********</value></data>
+  <data name="写单扇区" xml:space="preserve"><value>写单扇区</value></data>
+  <data name="写卡提示" xml:space="preserve"><value>默认将把表A的数据写入，确定将继续写卡，取消则重新选择</value></data>
+  <data name="图片文件" xml:space="preserve"><value>图片文件|*.jpeg;*.jpg;*.gif;*.png</value></data>
+  <data name="写入出错" xml:space="preserve"><value>写入出错</value></data>
+  <data name="该扇区访问控制位损坏_写入将会损坏卡片_已重新设置" xml:space="preserve"><value>该扇区访问控制位损坏，写入将会损坏卡片，已重新设置。
+</value></data>
+  <data name="已保存到" xml:space="preserve"><value>已保存到</value></data>
+  <data name="密钥破解" xml:space="preserve"><value>**********开始密钥破解，耐心等待 **********</value></data>
+  <data name="对比结果" xml:space="preserve"><value>对比结果</value></data>
+  <data name="已指定使用该NFC设备" xml:space="preserve"><value>已指定使用该NFC设备：</value></data>
+  <data name="请输入已知Key" xml:space="preserve"><value>请输入已知Key</value></data>
+  <data name="MFOC解密" xml:space="preserve"><value>*********开始执行MFOC解密*********</value></data>
+  <data name="正在打开ACR122U支持" xml:space="preserve"><value>正在打开ACR122U支持……</value></data>
+  <data name="round_sync_black_18pt_1x" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0
+ZW0uRHJhd2luZy5CaXRtYXABAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAOAEAAAKJUE5HDQoaCgAA
+AA1JSERSAAAAEgAAABIIBgAAAFbOjlcAAAABc1JHQgCuzhzpAAAABGdBTUEAALGPC/xhBQAAAOJJ
+REFUOE+9k7GOAVEUhseGeAf7GBqNyhNobE+H96AU5WoUKpV+oyKxGgURlScQnSg09vvvmenmDmNi
+v+RL/jOTnLk5Z27wX3xgx+LrFHCGd1dlYIJqEnnELhYxFVW8opoMcB7mA5YwFRU8W3TUUPUKc3rg
+o449i16+UCdrucrDBpcWE9ni2mI8N9Q8HjHCi8V49PLbYiL6WGKjX9xZTGSBGoOXJmqQDVf56aMW
+40VXQqvVirXqiBOWLT7PJ+5RJ/vBYZg1E/1XqdA10GXVtVCTyDFmQk2mmHdVBtqo+b2bIPgDGccw
+x+sotk0AAAAASUVORK5CYIIL</value></data><data name="手环_模拟卡" xml:space="preserve"><value>**********开始一键写手机手环/模拟卡**********</value></data>
+  <data name="一键写卡" xml:space="preserve"><value>**********开始一键写卡**********</value></data>
+  <data name="不要取消" xml:space="preserve"><value>大多数情况下，不需要删除历史密钥，有历史密钥解密速度更快，如果你是因为启动速度过慢，历史密钥太大，你可以选择删除</value></data>
+  <data name="_格式化结束" xml:space="preserve"><value>完成！</value></data>
+  <data name="已导出MCT文件" xml:space="preserve"><value>已导出MCT文件</value></data>
+  <data name="无法找到MFF08程序文件_操作终止" xml:space="preserve"><value>无法找到MFF08程序文件。
+操作终止。</value></data>
+  <data name="_已自动保存" xml:space="preserve"><value>##已自动保存:</value></data>
+  <data name="请选择MFD文件保存位置及文件名" xml:space="preserve"><value>请选择MFD文件保存位置及文件名</value></data>
+  <data name="开始执行格式化M1卡片" xml:space="preserve"><value>开始执行格式化M1卡片……</value></data>
+  <data name="round_done_black_24pt_1x" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0
+ZW0uRHJhd2luZy5CaXRtYXABAAAABERhdGEHAgIAAAAJAwAAAA8DAAAA7QAAAAKJUE5HDQoaCgAA
+AA1JSERSAAAAGAAAABgIBgAAAOB3PfgAAAABc1JHQgCuzhzpAAAABGdBTUEAALGPC/xhBQAAAJdJ
+REFUSEvtjTEKwkAUBfcQ3sQLWCqIVYqAIJhOsLDwAOktvWVOYEiImWf4sGga4w9Y7MDA5kHmh0Ti
+r9hjhfnry5kMO3ziUYMnireo+F2DJ3H8psGTHc4ab3BS/IDL4TlKHC81fMMC9eMDVxreWKPFrxqm
+UODYEcVr/ClunDA+4ho34iMWP6MrF1R4lrixxc3wTCQ+CKEHEQ4q4QYqTBUAAAAASUVORK5CYIIL</value></data><data name="Start_emu_Card" xml:space="preserve"><value>**********Start emulate Ntag**********</value></data>
+  <data name="加载的S50卡文件大小异常" xml:space="preserve"><value>加载的S50卡文件大小异常。</value></data>
+  <data name="请输入需要写入的UID卡号_共8位十六进制数_如E44A3B" xml:space="preserve"><value>请输入需要写入的UID卡号，共8位十六进制数，如E44A3BF1。</value></data>
+  <data name="UID已改为" xml:space="preserve"><value>UID已改为</value></data>
+  <data name="phone_wireband" xml:space="preserve"><value>**********Start write phone/wireband nfc device**********</value></data>
+  <data name="start_read_tag" xml:space="preserve"><value>**********Start Read Ntag**********</value></data>
+  <data name="请选择MCT_txt文件保存位置及文件名" xml:space="preserve"><value>请选择MCT.txt文件保存位置及文件名</value></data>
+  <data name="MifareOne_Tool_运行完毕" xml:space="preserve"><value>PCR532 - 运行完毕</value></data>
+  <data name="请选择需要打开的MFD文件_比较B" xml:space="preserve"><value>请选择需要打开的MFD文件(比较B)</value></data>
+  <data name="请选择需要打开的MFD文件_比较A" xml:space="preserve"><value>请选择需要打开的MFD文件(比较A)</value></data>
+  <data name="加载的文件不存在" xml:space="preserve"><value>加载的文件不存在。</value></data>
+  <data name="设置错误_请修改" xml:space="preserve"><value>设置错误，请修改。</value></data>
+  <data name="开始执行UID卡片设定卡号" xml:space="preserve"><value>开始执行UID卡片设定卡号……</value></data>
+  <data name="该操作将会锁死UFUID卡片_锁死后不可恢复_无法再次更改0" xml:space="preserve"><value>该操作将会锁死UFUID卡片！！！
+锁死后不可恢复！无法再次更改0块！请确认是否要继续操作？</value></data>
+  <data name="请输入需要更改的UID卡号_共8位十六进制数_如E44A3B" xml:space="preserve"><value>请输入需要更改的UID卡号，共8位十六进制数，如E44A3BF1。</value></data>
+  <data name="文件内不是含有64个块数据_可能不完整或不兼容" xml:space="preserve"><value>文件内不是含有64个块数据，可能不完整或不兼容。</value></data>
+  <data name="加载的S502卡文件大小异常" xml:space="preserve"><value>当前模式为亲邻卡模式，加载的亲邻卡文件异常</value></data>
+  <data name="DUMP文件_dump_MFD文件_mfd" xml:space="preserve"><value>DUMP文件|*.dump|MFD文件|*.mfd|NTAG|*.bin</value></data>
+  <data name="终端内容已保存至m1t_log文件" xml:space="preserve"><value>终端内容已保存至m1t.log文件</value></data>
+  <data name="开始执行UID卡片读取" xml:space="preserve"><value>开始执行UID卡片读取……</value></data>
+  <data name="开始执行UID卡片全格" xml:space="preserve"><value>开始执行UID卡片全格……</value></data>
+  <data name="开始执行UID卡片写入" xml:space="preserve"><value>开始执行UID卡片写入……</value></data>
+  <data name="您正在试图重复运行" xml:space="preserve"><value>您正在试图重复运行</value></data>
+  <data name="_文件中的值错误" xml:space="preserve"><value>##文件中的值错误##</value></data>
+  <data name="开始执行HardNested收集数据" xml:space="preserve"><value>开始执行HardNested收集数据……</value></data>
+  <data name="_QQ群讨论组" xml:space="preserve"><value>QQ群:1003405478</value></data>
+  <data name="请选择一个你要入ndef的内容" xml:space="preserve"><value>请选择一个你要入ndef的内容</value></data>
+  <data name="您可以上传到云计算服务节点进行计算" xml:space="preserve"><value>您可以上传到云计算服务节点进行计算。</value></data>
+  <data name="round_timer_black_18pt_1x" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0
+ZW0uRHJhd2luZy5CaXRtYXABAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAigEAAAKJUE5HDQoaCgAA
+AA1JSERSAAAAEgAAABIIBgAAAFbOjlcAAAABc1JHQgCuzhzpAAAABGdBTUEAALGPC/xhBQAAATRJ
+REFUOE+10j1Lw1AUxvEoilS/gJsU7FAKgg6tONlZV/0EOnTo4iSIL2tndXPoB3BwcBBxUJx0Fosv
+0LWbg0VEsPp/Tm5pc5tGWvCBH5xz70lyExL8kXksO6qHyix+PBkMlQW0T6R64ExgGxdoQKd5wQbG
+MIoZJCaHJ+hi3ejAUa21Om7xjr7JoolnFLXgRWva0w13tRAXHfkBNUxpweUQR2Fp0Z7mXqFX7Mka
+9KRV6zq5drqzAs2uW+flBG8Ysa6TuBtpRrNV67xc4j4sI7ly/NxB1/TkDPo+fvIohGUkjzgNy2j2
+0cK0dcnRjGZ3rPOSxhcq1iVHM/rYc9bFZA/f2LQuPtrTzLF1faJ/SR9WT7vBItpRrTXtnWMcidFP
+toVP6KJuHyhhoExiCWVHJ0rhPxMEv5P8RTkOwUzSAAAAAElFTkSuQmCCCw==</value></data><data name="card_id_finish" xml:space="preserve"><value>**********Write card id finish**********</value></data>
+  <data name="字典文件_dic" xml:space="preserve"><value>字典文件|*.dic</value></data>
+  <data name="_缓存文件异常" xml:space="preserve"><value>##缓存文件异常##</value></data>
+  <data name="一键读取Ntag" xml:space="preserve"><value>**********一键读取Ntag**********</value></data>
+  <data name="当前选定扇区" xml:space="preserve"><value>当前选定扇区：？？</value></data>
+  <data name="已导出密钥字典文件" xml:space="preserve"><value>已导出密钥字典文件</value></data>
+  <data name="已启用CUID空卡写入补丁" xml:space="preserve"><value>已启用CUID空卡写入补丁</value></data>
+  <data name="该扇区访问控制位损坏_写入将会损坏卡片_请重新设置" xml:space="preserve"><value>该扇区访问控制位损坏，写入将会损坏卡片，请重新设置。
+</value></data>
+  <data name="开始模拟卡" xml:space="preserve"><value>**********开始读卡器模拟ntag**********</value></data>
+  <data name="_程序已被强制停止" xml:space="preserve"><value>##程序已被强制停止##</value></data>
+  <data name="开始执行读取身份证ID" xml:space="preserve"><value>*********开始执行读取身份证ID*********</value></data>
+  <data name="开始执行UFUID卡片锁定" xml:space="preserve"><value>开始执行UFUID卡片锁定……</value></data>
+  <data name="levelnogo" xml:space="preserve"><value>等级不够！请升级至VIP/SVIP!</value></data>
+  <data name="有任务运行中_不可执行" xml:space="preserve"><value>有任务运行中，不可执行。</value></data>
+  <data name="card_uid" xml:space="preserve"><value>**********Start Read card uid**********</value></data>
+  <data name="MifareOne_Tool" xml:space="preserve"><value>PCR532</value></data>
+  <data name="_个块不同" xml:space="preserve"><value> 个块不同
+</value></data>
+  <data name="round_done_all_black_18pt_1x" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0
+ZW0uRHJhd2luZy5CaXRtYXABAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAEwEAAAKJUE5HDQoaCgAA
+AA1JSERSAAAAEgAAABIIBgAAAFbOjlcAAAABc1JHQgCuzhzpAAAABGdBTUEAALGPC/xhBQAAAL1J
+REFUOE/t0L8KQWEcxvGfksGfiMlgUM5uNEkGi2uwuAKjkSuwGeU6zhWYDAaDRSk2g0RMfH+/01sG
+6S1s56lPp+c99fSeI3F+nhz6SFiLnj2UrHkmiwWuKOgBmeGBjjWPuJEb2npAptCRgTWP/H1kaO0l
+NcxRtCaSgvY6MgjhRiZ4O6IJcMYKeSSxxhH6zuXjiEsDFyyhn1PGFgdU4TXi0sQd+k/SqGCHE3Rk
+BO90sUfLWnSbDcbW4nwRkSeS2Sn0nZInCQAAAABJRU5ErkJgggs=</value></data><data name="KeyA_B_N" xml:space="preserve"><value>KeyA/B/N</value></data>
+  <data name="暂时只支持213_215_216文件" xml:space="preserve"><value>213/215/216文件大小是一般是180/540/924，你打开的文件不在这个范围，可能会导致锁卡，或者加密，请谨慎使用！</value></data>
+  <data name="进行加密检查" xml:space="preserve"><value>进行加密检查</value></data>
+  <data name="outline_info_black_18pt_1x" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0
+ZW0uRHJhd2luZy5CaXRtYXABAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAVQEAAAKJUE5HDQoaCgAA
+AA1JSERSAAAAEgAAABIIBgAAAFbOjlcAAAABc1JHQgCuzhzpAAAABGdBTUEAALGPC/xhBQAAAP9J
+REFUOE+9lEsOAUEQhucAgh22Hom4gOfCGYRbsOIgFtYkLDiGw+AMNh7/1+mZMXRPhoUv+ZKp6qo2
+Kt0T/IOiHMqplWdymSnLvXx4PMiSTKUhT/IqV7IqQ3gmxxo11DrhTc7WFgkPrIV1FRLv7ORNDkwU
+s7S+0pfU0pOgIO9yY6Ikro1gLemhN2IkGWTHRNmglp6JiSxzSTJvoiS+N6KWHnojFpJkzkRJjtZ3
+qKWH3oixJOn6a76N2pIeeiPShu3biNqPYcNWstAzUYxrRl1JLT0fcOw5ZBfZJOGBtfBAeq9KTWa9
+InWZCr/CxWSQLjNd2lfCz8jM+vVn5AeC4AnndEgpYyXCJAAAAABJRU5ErkJgggs=</value></data><data name="秒" xml:space="preserve"><value>秒</value></data>
+  <data name="错误" xml:space="preserve"><value>错误</value></data>
+  <data name="空闲" xml:space="preserve"><value>空闲</value></data>
+  <data name="未知" xml:space="preserve"><value>未知</value></data>
+  <data name="扇区" xml:space="preserve"><value>扇区</value></data>
+  <data name="标准" xml:space="preserve"><value>标准</value></data>
+  <data name="分钟" xml:space="preserve"><value>分钟</value></data>
+  <data name="俄语" xml:space="preserve"><value>俄语</value></data>
+  <data name="请输入已知的Key_以英文半角逗号分隔" xml:space="preserve"><value>请输入已知的Key，以英文半角逗号分隔。</value></data>
+  <data name="round_info_black_18pt_1x" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0
+ZW0uRHJhd2luZy5CaXRtYXABAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAGwEAAAKJUE5HDQoaCgAA
+AA1JSERSAAAAEgAAABIIBgAAAFbOjlcAAAABc1JHQgCuzhzpAAAABGdBTUEAALGPC/xhBQAAAMVJ
+REFUOE+91FEOwUAUheHugDc8Yx/WIOyCpAnbIcIDC2MbOH8yJkNPx9SDk3xJ07n3tmlmWv0jfZnJ
+KuCae8UZylkeLS4ykGymchU3IEUNtTa8yU1co0PtSBo5iWuoA7dGz1t6chdXnBtED70xc3GFJZYS
+sxFXhL3sPu6l6I3ZiisC+wduDfTGLMQV4dsgemNyHzs3qPGxyVFc8SFwa/Q0wrbvuiFbj8pYSo/I
+RLLhKRxMNwBFhzbN6zeyDrju9Bv5IVX1BIZJpw8xvq2aAAAAAElFTkSuQmCCCw==</value></data><data name="使用KeyA_是_或KeyB_否" xml:space="preserve"><value>使用KeyA（是）或KeyB（否）？</value></data>
+  <data name="ACR122U支持已经打开过" xml:space="preserve"><value>ACR122U支持已经打开过。</value></data>
+  <data name="_Sector" xml:space="preserve"><value>+Sector: </value></data>
+  <data name="请选择需要写入的MFD文件" xml:space="preserve"><value>请选择需要写入的MFD文件</value></data>
+  <data name="_是否需要另存为" xml:space="preserve"><value>是否需要另存为</value></data>
+  <data name="运行中" xml:space="preserve"><value>运行中</value></data>
+  <data name="设备忙" xml:space="preserve"><value>设备忙</value></data>
+  <data name="_结束" xml:space="preserve"><value>##################################################################</value></data>
+  <data name="_扇区" xml:space="preserve"><value>#扇区 </value></data>
+  <data name="hp2" xml:space="preserve"><value>高性能解卡，需要消耗更多电脑资源和芯片资源，如果cpu核少，速度变化不明显！</value></data>
+  <data name="res" xml:space="preserve"><value>。</value></data>
+  <data name="无密钥" xml:space="preserve"><value>无密钥</value></data>
+  <data name="扇区0" xml:space="preserve"><value>扇区 </value></data>
+  <data name="打开了" xml:space="preserve"><value>数据表打开了</value></data>
+  <data name="格式化" xml:space="preserve"><value>**********开始格式化**********</value></data>
+  <data name="共找到" xml:space="preserve"><value>共找到 </value></data>
+  <data name="写卡号" xml:space="preserve"><value>**********写卡号结束**********</value></data>
+  <data name="已打开" xml:space="preserve"><value>已打开。</value></data>
+  <data name="MCT格式" xml:space="preserve"><value>MCT格式|*.*</value></data>
+  <data name="该扇区一切正常" xml:space="preserve"><value>该扇区一切正常。
+</value></data>
+  <data name="Skydb" xml:space="preserve"><value>./nfc-bin/qqgui/nfc-emulate-forum-tag4.exe</value></data>
+  <data name="Start_MFOC_nfc" xml:space="preserve"><value>*********Start MFOC nfc  Read*********</value></data>
+  <data name="开始执行全加密卡片爆破" xml:space="preserve"><value>开始执行全加密卡片爆破……</value></data>
+  <data name="_giveitup" xml:space="preserve"><value>这是一张无漏洞卡，强烈建议通过密钥破解</value></data>
+  <data name="使用KeyA_是_或KeyB_否_还是不使用_用于全新白卡_" xml:space="preserve"><value>使用KeyA（是）或KeyB（否），还是不使用（用于全新白卡）（取消）？</value></data>
+  <data name="该文件一切正常" xml:space="preserve"><value>该文件一切正常。</value></data>
+  <data name="Key_8fd0a4f256e9" xml:space="preserve"><value>Key: 8fd0a4f256e9</value></data>
+  <data name="该扇区UID校验值错误_已经自动为您更正" xml:space="preserve"><value>该扇区UID校验值错误，已经自动为您更正。
+</value></data>
+  <data name="_0_9A_Fa_f_32" xml:space="preserve"><value>[0-9A-Fa-f]{32}</value></data>
+  <data name="您没有给定最后一次写卡导致0块损坏的卡数据文件来作为写卡时的" xml:space="preserve"><value>您没有给定最后一次写卡导致0块损坏的卡数据文件来作为写卡时的密钥源。
+操作终止。</value></data>
+  <data name="开始执行检测卡片加密" xml:space="preserve"><value>开始执行检测卡片加密……</value></data>
+  <data name="写模拟卡_M1" xml:space="preserve"><value>**********写M1/模拟卡，手机/手环**********</value></data>
+  <data name="识别了以下设备" xml:space="preserve"><value>识别了以下设备：</value></data>
+  <data name="选择key_mfd" xml:space="preserve"><value>选择key.mfd</value></data>
+  <data name="_distance64" xml:space="preserve"><value>distance 64</value></data>
+  <data name="请选择需要打开的MCT格式文件" xml:space="preserve"><value>请选择需要打开的MCT格式文件</value></data>
+  <data name="MifareOne_Tool_运行中" xml:space="preserve"><value>PCR532 - 运行中 </value></data>
+  <data name="round_update_black_24pt_1x" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0
+ZW0uRHJhd2luZy5CaXRtYXABAAAABERhdGEHAgIAAAAJAwAAAA8DAAAA5gEAAAKJUE5HDQoaCgAA
+AA1JSERSAAAAGAAAABgIBgAAAOB3PfgAAAABc1JHQgCuzhzpAAAABGdBTUEAALGPC/xhBQAAAZBJ
+REFUSEvt1M0rBVEcxvHxWiLkbSFKiSgLJFkKZWUvK2sWFja2RIo/QEnYsFISS9lIWCjJy8ZCEhtv
+oVh4+z5nZoo75txx7/Y+9enO79zfnHObe+Y4qSSbTPRhHVd4wSlWMIgKxKbJ+4ybVpzjy+IdyyiD
+MoFP99KebrxCk5xgAAVQStCFEdxCPdcY867Fmmo8Q43TGrCkCKvwJ460wB7UNG+q+BlH5AU6oIZL
+ZGsgJofodS9NhhA7uYRmDmoYNlUw+k7PWmnAz0l9NwjNGdRUZ6pg9J2/QEJ5gibJM1UwSS+gF0mT
+5JsqmDccocVUv5OFA+ybKiR6S7VAs6mCaccF1LMBbWk/bdD4salCMgs1jZrq7+RgCh9Y0oCXSeje
+RVOFpBFq0huaqwFLalHuXjqluIPu7dSALVtQow60KMnAJnTPtgbipRL+btJzLkZYtNvWoN57VCFS
+dJI+QDfqcelg01teCP2AHuic8g877T79yf9KDXahCWx02tYjoaRBv3YG2uOPnh0soB/pSCXROM43
+kYJ7F/wgJRoAAAAASUVORK5CYIIL</value></data><data name="MifareOne_Tool_已终止" xml:space="preserve"><value>PCR532 - 已终止  </value></data>
+  <data name="MifareOne_Tool_已取消" xml:space="preserve"><value>PCR532  - 已取消  </value></data>
+  <data name="round_done_outline_black_24pt_1x" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0
+ZW0uRHJhd2luZy5CaXRtYXABAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAhAEAAAKJUE5HDQoaCgAA
+AA1JSERSAAAAGAAAABgIBgAAAOB3PfgAAAABc1JHQgCuzhzpAAAABGdBTUEAALGPC/xhBQAAAS5J
+REFUSEvtlD8rRWEcgA82JKV0J/8Wg0/AZDGZlGxsvpFrY7L5DjIoZTOwKcmg1GWSEJ6nzq9+3cQ9
+555M96mn0317z/N2Tr9ziwH/xTDu4Rc+4jI2hvEjNB4+4RL2zRBG/AMP8Lr8/YCjWBvjh2jsHTdQ
+tjGeZMaFOnTH11EW8B5dP3GhDjn+hjnua3H9AsexMt3xNZSe4i08xlPcdOEHIv6KEV/EP+Nuinen
+n7iDmX2M+KoL4H3O/a/xEbxBNzlijpoj5yG7KLXjMo9u0i0XwJHzENecBq8vWDkuPsEtuvkMx1Dy
+IcZXUPxCe44H+aZznEDxkGfM8Q5Wigd5Gi5xCmWyvPYVD/I8X+E0SiPxIH/ud9hG/x0biQezmL+L
+RuPBHPqajDuqjcYHlBTFNxoUdcJnzh8/AAAAAElFTkSuQmCCCw==</value></data><data name="当前选定扇区0" xml:space="preserve"><value>当前选定扇区：</value></data>
+  <data name="没有发现任何有效的NFC设备" xml:space="preserve"><value>没有发现任何有效的NFC设备。</value></data>
+  <data name="开始执行HardNested解密强化卡" xml:space="preserve"><value>开始执行HardNested解密强化卡……</value></data>
+  <data name="未选择有效key_mfd" xml:space="preserve"><value>未选择有效key.mfd。</value></data>
+  <data name="fuck_read" xml:space="preserve"><value>**********Start dictionary fuck read **********</value></data>
+  <data name="没有选择写入的内容" xml:space="preserve"><value>没有选择写入的内容</value></data>
+  <data name="txt文件_txt" xml:space="preserve"><value>txt文件|*.txt</value></data>
+  <data name="请输入UID号" xml:space="preserve"><value>请输入UID号</value></data>
+  <data name="该文件存在以下错误" xml:space="preserve"><value>该文件存在以下错误：
+</value></data>
+  <data name="运行时间" xml:space="preserve"><value>运行时间:</value></data>
+  <data name="_计算得到BCC" xml:space="preserve"><value>，计算得到BCC=</value></data>
+  <data name="将自动选择首个设备" xml:space="preserve"><value>将自动选择首个设备：</value></data>
+  <data name="正在使用智能KeyABN" xml:space="preserve"><value>正在使用智能KeyABN…</value></data>
+  <data name="round_done_all_black_24dp" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0
+ZW0uRHJhd2luZy5CaXRtYXABAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAdAEAAAKJUE5HDQoaCgAA
+AA1JSERSAAAAGAAAABgIBgAAAOB3PfgAAAABc1JHQgCuzhzpAAAABGdBTUEAALGPC/xhBQAAAR5J
+REFUSEvtkz8rR1Ech48/SSQk70AZLBYGi1UppQwGSRaJweANmL0HE5PJZjF5EV6AzSD/UiI8z733
+q1+3yD0Gy33q6d7zqfP5dn73/FJLy7+zhje4WqxKevEEr3HYIJcVfMcP3DAAy8/Q7AlHMIslfEOL
+Dg2gB6P8GecwC8tf0aIDA7D8FM0eMbt8AaN83wDq5TOYheUvaNGuAXTjr8q9DbPl6xdjuIPjxSql
+eXzAzvJjtPwevy0fQm+DR180qNhCN19hDBmtnvXyafyRTYwhywbQh+dYH9KFjcoDh7jJ6xd/HIdc
+YAzxZzuq1o3Kg210s6dZN4B+vETzu+p5i43Lgz2MIZMGMIAxxPIp/BN+7M4PLoPoCSeKVUtLSUqf
+yItKijLgT2wAAAAASUVORK5CYIIL</value></data><data name="设备串口" xml:space="preserve"><value>设备串口：</value></data>
+  <data name="round_clear_black_24dp" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0
+ZW0uRHJhd2luZy5CaXRtYXABAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAHgEAAAKJUE5HDQoaCgAA
+AA1JSERSAAAAGAAAABgIBgAAAOB3PfgAAAABc1JHQgCuzhzpAAAABGdBTUEAALGPC/xhBQAAAMhJ
+REFUSEvtlMsKwjAQRbsWwQeCoH/oB/j4Q1cKIuhGxC/Rc4qBUlCntV21Fw4kk5uZMk2S9equFrCC
+UT77Lj16l/ksqB084QgTAx/kmh69awNRDWAPbjzDDMoy5poeve6ppCEcwARXmEOSY2Mpud5asr+p
+yA3sszg25lrt5EkWOYEJ7/B4j41FDkFIU7iAicWxscZULuDXN1ag3CJJRf5uUas/udVjGr1oxSKV
+LtoG3PjrqSje5q2BqOxz9LEbg14fyF7dU5a9AKZFP5GKe5w2AAAAAElFTkSuQmCCCw==</value></data><data name="开始执行重置UID卡片卡号" xml:space="preserve"><value>开始执行重置UID卡片卡号……</value></data>
+  <data name="开始执行读取卡片" xml:space="preserve"><value>开始执行读取卡片……</value></data>
+  <data name="开始执行读取卡号" xml:space="preserve"><value>*********开始执行读取卡号*********</value></data>
+  <data name="请先选择com口" xml:space="preserve"><value>请先选择com口</value></data>
+  <data name="您已经运行了MifareOne_Tool_打开多个本程序可能" xml:space="preserve"><value>您已经运行了PCR532，打开多个本程序可能会造成冲突及不可预料到的错误。
+确认要继续吗？</value></data>
+  <data name="请选择需要写入的图片文件" xml:space="preserve"><value>请选择需要写入的图片文件</value></data>
+  <data name="Start_Write_Card" xml:space="preserve"><value>**********Start Write Card**********</value></data>
+  <data name="开始执行扫描卡片" xml:space="preserve"><value>开始执行扫描卡片……</value></data>
+  <data name="当前扇区数据仍有错误_不能执行修改" xml:space="preserve"><value>当前扇区数据仍有错误，不能执行修改。</value></data>
+  <data name="请选择一个包含目标卡密钥的MFD文件_通常是已经破解出的该卡" xml:space="preserve"><value>请选择一个包含目标卡密钥的MFD文件（通常是已经破解出的该卡的MFD文件）</value></data>
+  <data name="危险操作警告" xml:space="preserve"><value>危险操作警告</value></data>
+  <data name="开始执行字典模式MFOC解密" xml:space="preserve"><value>开始执行字典模式MFOC解密……</value></data>
+  <data name="不恰当的4字节UID长度" xml:space="preserve"><value>不恰当的4字节UID长度</value></data>
+  <data name="_软件版本" xml:space="preserve"><value>#软件版本 </value></data>
+  <data name="开始执行检测设备" xml:space="preserve"><value>开始执行检测设备……</value></data>
+  <data name="密钥字典文件_dic" xml:space="preserve"><value>密钥字典文件|*.dic</value></data>
+  <data name="_运行完毕" xml:space="preserve"><value>##运行完毕##</value></data>
+  <data name="_运行出错" xml:space="preserve"><value>##运行出错##</value></data>
+  <data name="check8" xml:space="preserve"><value>0x330x440x56</value></data>
+  <data name="请选择最后一次写卡导致0块损坏的卡数据文件" xml:space="preserve"><value>请选择最后一次写卡导致0块损坏的卡数据文件</value></data>
+  <data name="请选择需要打开的MFD文件" xml:space="preserve"><value>请选择需要打开的MFD文件</value></data>
+  <data name="_该卡片为UID卡" xml:space="preserve"><value>该卡片为UID卡</value></data>
+  <data name="InputError" xml:space="preserve"><value>InputError</value></data>
+  <data name="请选择密钥字典文件保存位置及文件名" xml:space="preserve"><value>请选择密钥字典文件保存位置及文件名</value></data>
+  <data name="开始执行MFOC解密" xml:space="preserve"><value>*********开始执行MFOC解密*********</value></data>
+  <data name="兄弟你要慎重啊" xml:space="preserve"><value>兄弟你要慎重啊，暴力破解全加密是一条不归路，现在后悔还来得及</value></data>
+  <data name="该扇区UID校验值错误_请点击打开扇区0来自动更正" xml:space="preserve"><value>该扇区UID校验值错误，请点击打开扇区0来自动更正。
+</value></data>
+  <data name="deviceerror" xml:space="preserve"><value>pn53x_check_communication error</value></data>
+  <data name="round_done_all_black_24pt_1x" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0
+ZW0uRHJhd2luZy5CaXRtYXABAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAdAEAAAKJUE5HDQoaCgAA
+AA1JSERSAAAAGAAAABgIBgAAAOB3PfgAAAABc1JHQgCuzhzpAAAABGdBTUEAALGPC/xhBQAAAR5J
+REFUSEvtkz8rR1Ech48/SSQk70AZLBYGi1UppQwGSRaJweANmL0HE5PJZjF5EV6AzSD/UiI8z733
+q1+3yD0Gy33q6d7zqfP5dn73/FJLy7+zhje4WqxKevEEr3HYIJcVfMcP3DAAy8/Q7AlHMIslfEOL
+Dg2gB6P8GecwC8tf0aIDA7D8FM0eMbt8AaN83wDq5TOYheUvaNGuAXTjr8q9DbPl6xdjuIPjxSql
+eXzAzvJjtPwevy0fQm+DR180qNhCN19hDBmtnvXyafyRTYwhywbQh+dYH9KFjcoDh7jJ6xd/HIdc
+YAzxZzuq1o3Kg210s6dZN4B+vETzu+p5i43Lgz2MIZMGMIAxxPIp/BN+7M4PLoPoCSeKVUtLSUqf
+yItKijLgT2wAAAAASUVORK5CYIIL</value></data><data name="该扇区UID校验值错误_已自动更正" xml:space="preserve"><value>该扇区UID校验值错误，已自动更正。
+</value></data>
+  <data name="同时打开ACR122U支持可能会引起操作速度下降_请确认是否" xml:space="preserve"><value>同时打开ACR122U支持可能会引起操作速度下降。
+请确认是否要继续操作？</value></data>
+  <data name="开始执行CUID_FUID卡片写入" xml:space="preserve"><value>开始执行CUID/FUID卡片写入……</value></data>
+  <data name="输入的UID号不合法" xml:space="preserve"><value>输入的UID号不合法</value></data>
+  <data name="已找到_K" xml:space="preserve"><value>已找到！K=</value></data>
+  <data name="round_chevron_right_black_24dp" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0
+ZW0uRHJhd2luZy5CaXRtYXABAAAABERhdGEHAgIAAAAJAwAAAA8DAAAA1QAAAAKJUE5HDQoaCgAA
+AA1JSERSAAAAGAAAABgIBgAAAOB3PfgAAAABc1JHQgCuzhzpAAAABGdBTUEAALGPC/xhBQAAAH9J
+REFUSEvtlDEKhDAURHMyi0Vw10K8gOwlthfrPeYWHkFFwX2jpLTLWOXBg2SKP5CEhEzmNip8nUsP
+I+74OXYGCpzQWlLigirpFTiocUWVfBU4aHFDlXQKUtNgLHgrSMkTbUek4fGSBwUpeeCMGm55pj+0
+DRf6JqxfRSZzRQh/IJQbkO8YexIAAAAASUVORK5CYIIL</value></data><data name="已更新扇区" xml:space="preserve"><value>已更新扇区</value></data>
+  <data name="AB文件中一个或两个无效" xml:space="preserve"><value>AB文件中一个或两个无效。</value></data>
+  <data name="nfc_bin_collect_exe" xml:space="preserve"><value>nfc-bin/collect.exe</value></data>
+  <data name="round_update_black_18pt_1x" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0
+ZW0uRHJhd2luZy5CaXRtYXABAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAhAEAAAKJUE5HDQoaCgAA
+AA1JSERSAAAAEgAAABIIBgAAAFbOjlcAAAABc1JHQgCuzhzpAAAABGdBTUEAALGPC/xhBQAAAS5J
+REFUOE/V0j8oRWEYx/EXpYiBshnEfCklm5RJNoPJoq4ySLIZFFYUycogNhuxiFsGIimbSTEof0pR
+WPj+nvfczjn3nqOz3l996nne+97nvefc11VMajCMFRzjBMvoRuY0oYBf3OE08BKsnaMV4zhEYrRB
+X35CvxYiacACvvAGDdUBiTnDMzqsS84uNCR10AD0Yd66MNsY8aVbR3FI6qA1fKLWujDaPOZLN4n5
+iFGUZR/XvowlOihTDnDjy1i2cI8e68JsYsOX8aziG43WhanDLF4xowWiPT9Ysq4kg9ALnLauPM3o
+8qWbgvb2WVeSKlziHZ1aSEkOuksX1qVEF/IResRF1KOYakxABz2gHf+mDVfQT9fl1L92i49g7Qgt
+yBSdPoQ57EHDdtCLiohzf9uERVPy4PZtAAAAAElFTkSuQmCCCw==</value></data><data name="SAK_SEL08" xml:space="preserve"><value>\(SEL_RES\): 08</value></data>
+  <data name="SAK_SEL28" xml:space="preserve"><value>\(SEL_RES\): 28</value></data>
+  <data name="SAK_SEL20" xml:space="preserve"><value>\(SEL_RES\): 20</value></data>
+  <data name="开始执行写入M1卡片" xml:space="preserve"><value>开始执行写入M1卡片……</value></data>
+  <data name="devicecomm" xml:space="preserve"><value>Device</value></data>
+  <data name="chinese_ID_card" xml:space="preserve"><value>**********Start read chinese ID card**********</value></data>
+  <data name="请选择需要打开的密钥字典文件" xml:space="preserve"><value>请选择需要打开的密钥字典文件</value></data>
+  <data name="card_Format" xml:space="preserve"><value>**********Start card Format**********</value></data>
+  <data name="Start_detect_nfc" xml:space="preserve"><value>**********Start detect card**********</value></data>
+  <data name="该操作将会清空UID卡内全部数据_清空后不可恢复_请确认是否" xml:space="preserve"><value>该操作将会清空UID卡内全部数据！！！
+清空后不可恢复！请确认是否要继续操作？</value></data>
+  <data name="_空扇区" xml:space="preserve"><value> 空扇区</value></data>
+  <data name="_未保存" xml:space="preserve"><value>##未保存##</value></data>
+  <data name="_有数据" xml:space="preserve"><value> 有数据</value></data>
+  <data name="_有错误" xml:space="preserve"><value> 有错误</value></data>
+  <data name="_已保存" xml:space="preserve"><value>##已保存-</value></data>
+  </root>

@@ -1,0 +1,53 @@
+[
+  {
+    "component": "PN532CardReader",
+    "original_path": "D:\\tools\\PCR532\\PN532CardReader.exe",
+    "sha256": "665fac823ec32fd0f84546a7915857970934b2f4d94ddf6da45521aea96ccb12",
+    "assembly_version": "1.0.6.9",
+    "frameworks": [
+      ".NETFramework,Version=v4.6"
+    ],
+    "metadata_type_definitions": 102,
+    "metadata_method_definitions": 1139,
+    "recovered_cs_files": 40,
+    "recovered_resource_files": 12,
+    "rea_evidence_id": "ev_3e6df40380e7b6c48e0f3e7b900250ee52b460a5358a4bb4b4dea4168c903a61",
+    "decompiler": "ILSpyCmd 9.1.0.7988",
+    "output_path": "P:\\react\\rea\\PCR532-recovered\\PN532CardReader",
+    "build_verified": false
+  },
+  {
+    "component": "ChameleonMiniGUI",
+    "original_path": "D:\\tools\\PCR532\\ChameleonMiniGUI.exe",
+    "sha256": "91df69f8e877e3e3ef6b12e7c2619d22ee883a322738d6ebaea30269ae2046e3",
+    "assembly_version": "1.3.0.3",
+    "frameworks": [
+      ".NETFramework,Version=v4.6.2"
+    ],
+    "metadata_type_definitions": 82,
+    "metadata_method_definitions": 673,
+    "recovered_cs_files": 47,
+    "recovered_resource_files": 3,
+    "rea_evidence_id": "ev_3385cd2c09f8f4d7603030fc9f29b9f9f66e0aa6615acc6ab6e019f2b1578054",
+    "decompiler": "ILSpyCmd 9.1.0.7988",
+    "output_path": "P:\\react\\rea\\PCR532-recovered\\ChameleonMiniGUI",
+    "build_verified": false
+  },
+  {
+    "component": "update",
+    "original_path": "D:\\tools\\PCR532\\update.exe",
+    "sha256": "f79309f5e95d0faec1a644664f1e46eb8cc9218aa2c3d4b2ae8502782b9b2899",
+    "assembly_version": "1.0.0.0",
+    "frameworks": [
+      ".NETFramework,Version=v4.6"
+    ],
+    "metadata_type_definitions": 6,
+    "metadata_method_definitions": 18,
+    "recovered_cs_files": 6,
+    "recovered_resource_files": 1,
+    "rea_evidence_id": "ev_5d89a842c394beffe813d82b4655ed8e5f04c5eaaa197ff7c2487b3bbe040a69",
+    "decompiler": "ILSpyCmd 9.1.0.7988",
+    "output_path": "P:\\react\\rea\\PCR532-recovered\\update",
+    "build_verified": false
+  }
+]

@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+<resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>1.3</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="&gt;&gt;flowLayoutPanel1.Parent" xml:space="preserve"><value>tableLayoutPanel3</value></data>
+  <data name="groupBox2.AutoSizeMode" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+ACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5BdXRvU2l6ZU1vZGUBAAAAB3ZhbHVlX18ACAIAAAAAAAAA
+Cw==</value></data><data name="groupBox2.TabIndex" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>16</value></data>
+  <data name="tableLayoutPanel3.AutoSizeMode" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+ACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5BdXRvU2l6ZU1vZGUBAAAAB3ZhbHVlX18ACAIAAAAAAAAA
+Cw==</value></data><data name="button1.AutoSize" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>True</value></data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>True</value></data>
+  <data name="&gt;&gt;flowLayoutPanel1.ZOrder" xml:space="preserve"><value>1</value></data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve"><value>5</value></data>
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve"><value>2</value></data>
+  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve"><value>3</value></data>
+  <data name="&gt;&gt;label5.Parent" xml:space="preserve"><value>tableLayoutPanel2</value></data>
+  <data name="flowLayoutPanel1.Dock" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+AB5TeXN0ZW0uV2luZG93cy5Gb3Jtcy5Eb2NrU3R5bGUBAAAAB3ZhbHVlX18ACAIAAAAFAAAACw==</value></data><data name="flowLayoutPanel1.Size" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABNTeXN0
+ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAgAAALYBAAB4AAAACw==</value></data><data name="&gt;&gt;radioKey2A.Parent" xml:space="preserve"><value>tableLayoutPanel2</value></data>
+  <data name="&gt;&gt;tableLayoutPanel4.ZOrder" xml:space="preserve"><value>0</value></data>
+  <data name="button2.TabIndex" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>1</value></data>
+  <data name="&gt;&gt;tableLayoutPanel4.Parent" xml:space="preserve"><value>groupBox2</value></data>
+  <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>17</value></data>
+  <data name="$this.Text" xml:space="preserve"><value>初始化HardNested解密</value></data>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve"><value>tableLayoutPanel2</value></data>
+  <data name="label6.TabIndex" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>12</value></data>
+  <data name="&gt;&gt;radioKey1A.ZOrder" xml:space="preserve"><value>2</value></data>
+  <data name="groupBox1.AutoSizeMode" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+ACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5BdXRvU2l6ZU1vZGUBAAAAB3ZhbHVlX18ACAIAAAAAAAAA
+Cw==</value></data><data name="radioKey1B.Location" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABRTeXN0
+ZW0uRHJhd2luZy5Qb2ludAIAAAABeAF5AAAICAIAAAAbAQAAFwAAAAs=</value></data><data name="&gt;&gt;radioKey1A.Parent" xml:space="preserve"><value>tableLayoutPanel1</value></data>
+  <data name="radioKey2A.Location" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABRTeXN0
+ZW0uRHJhd2luZy5Qb2ludAIAAAABeAF5AAAICAIAAABCAAAAFwAAAAs=</value></data><data name="label3.TabIndex" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>12</value></data>
+  <data name="label3.TextAlign" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAAB9TeXN0
+ZW0uRHJhd2luZy5Db250ZW50QWxpZ25tZW50AQAAAAd2YWx1ZV9fAAgCAAAAIAAAAAs=</value></data><data name="tableLayoutPanel2.Location" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABRTeXN0
+ZW0uRHJhd2luZy5Qb2ludAIAAAABeAF5AAAICAIAAACMAAAAAwAAAAs=</value></data><data name="&gt;&gt;label3.Parent" xml:space="preserve"><value>tableLayoutPanel1</value></data>
+  <data name="$this.AutoSize" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>True</value></data>
+  <data name="keyEdit.Lines[0]" xml:space="preserve"><value>ffffffffffff</value></data>
+  <data name="tableLayoutPanel5.Location" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABRTeXN0
+ZW0uRHJhd2luZy5Qb2ludAIAAAABeAF5AAAICAIAAADiAAAAAwAAAAs=</value></data><data name="sector1.Lines[0]" xml:space="preserve"><value>0</value></data>
+  <data name="tableLayoutPanel2.ColumnCount" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>4</value></data>
+  <data name="tableLayoutPanel4.LayoutSettings" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+AChTeXN0ZW0uV2luZG93cy5Gb3Jtcy5UYWJsZUxheW91dFNldHRpbmdzAQAAABBTZXJpYWxpemVk
+U3RyaW5nAQIAAAAGAwAAANsCPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTE2Ij8+
+PFRhYmxlTGF5b3V0U2V0dGluZ3M+PENvbnRyb2xzPjxDb250cm9sIE5hbWU9InRhYmxlTGF5b3V0
+UGFuZWwyIiBSb3c9IjAiIFJvd1NwYW49IjEiIENvbHVtbj0iMSIgQ29sdW1uU3Bhbj0iMSIgLz48
+Q29udHJvbCBOYW1lPSJjaGVja0JveENvbE9ubHkiIFJvdz0iMCIgUm93U3Bhbj0iMSIgQ29sdW1u
+PSIwIiBDb2x1bW5TcGFuPSIxIiAvPjwvQ29udHJvbHM+PENvbHVtbnMgU3R5bGVzPSJBdXRvU2l6
+ZSwwLEF1dG9TaXplLDAiIC8+PFJvd3MgU3R5bGVzPSJBdXRvU2l6ZSwwLEFic29sdXRlLDIwIiAv
+PjwvVGFibGVMYXlvdXRTZXR0aW5ncz4L</value></data><data name="$this.ClientSize" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABNTeXN0
+ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAgAAALwBAAAqAQAACw==</value></data><data name="tableLayoutPanel2.AutoSizeMode" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+ACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5BdXRvU2l6ZU1vZGUBAAAAB3ZhbHVlX18ACAIAAAAAAAAA
+Cw==</value></data><data name="&gt;&gt;tableLayoutPanel1.ZOrder" xml:space="preserve"><value>0</value></data>
+  <data name="label4.AutoSize" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>True</value></data>
+  <data name="label2.Size" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABNTeXN0
+ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAgAAAIYAAAAUAAAACw==</value></data><data name="label2.Text" xml:space="preserve"><value>已知的Key</value></data>
+  <data name="label2.Dock" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+AB5TeXN0ZW0uV2luZG93cy5Gb3Jtcy5Eb2NrU3R5bGUBAAAAB3ZhbHVlX18ACAIAAAAFAAAACw==</value></data><data name="&gt;&gt;tableLayoutPanel1.Parent" xml:space="preserve"><value>groupBox1</value></data>
+  <data name="tableLayoutPanel3.LayoutSettings" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+AChTeXN0ZW0uV2luZG93cy5Gb3Jtcy5UYWJsZUxheW91dFNldHRpbmdzAQAAABBTZXJpYWxpemVk
+U3RyaW5nAQIAAAAGAwAAAJ0DPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTE2Ij8+
+PFRhYmxlTGF5b3V0U2V0dGluZ3M+PENvbnRyb2xzPjxDb250cm9sIE5hbWU9Imdyb3VwQm94MSIg
+Um93PSIwIiBSb3dTcGFuPSIxIiBDb2x1bW49IjAiIENvbHVtblNwYW49IjEiIC8+PENvbnRyb2wg
+TmFtZT0iZmxvd0xheW91dFBhbmVsMSIgUm93PSIyIiBSb3dTcGFuPSIxIiBDb2x1bW49IjAiIENv
+bHVtblNwYW49IjEiIC8+PENvbnRyb2wgTmFtZT0iZ3JvdXBCb3gyIiBSb3c9IjEiIFJvd1NwYW49
+IjEiIENvbHVtbj0iMCIgQ29sdW1uU3Bhbj0iMSIgLz48L0NvbnRyb2xzPjxDb2x1bW5zIFN0eWxl
+cz0iQXV0b1NpemUsMCIgLz48Um93cyBTdHlsZXM9IkF1dG9TaXplLDAsQXV0b1NpemUsMCxBdXRv
+U2l6ZSwwIiAvPjwvVGFibGVMYXlvdXRTZXR0aW5ncz4L</value></data><data name="tableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>4</value></data>
+  <data name="label3.Text" xml:space="preserve"><value>扇区号</value></data>
+  <data name="label3.Size" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABNTeXN0
+ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAgAAADkAAAAUAAAACw==</value></data><data name="label3.Dock" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+AB5TeXN0ZW0uV2luZG93cy5Gb3Jtcy5Eb2NrU3R5bGUBAAAAB3ZhbHVlX18ACAIAAAAFAAAACw==</value></data><data name="&gt;&gt;sector1.Name" xml:space="preserve"><value>sector1</value></data>
+  <data name="radioKey2A.Text" xml:space="preserve"><value>KeyA</value></data>
+  <data name="radioKey2A.Size" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABNTeXN0
+ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAgAAAEcAAAAYAAAACw==</value></data><data name="&gt;&gt;sector1.Type" xml:space="preserve"><value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></data>
+  <data name="label1.Text" xml:space="preserve"><value>连续工作时请注意设备散热！</value></data>
+  <data name="label1.Size" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABNTeXN0
+ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAgAAANkAAAAqAAAACw==</value></data><data name="label1.Dock" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+AB5TeXN0ZW0uV2luZG93cy5Gb3Jtcy5Eb2NrU3R5bGUBAAAAB3ZhbHVlX18ACAIAAAAFAAAACw==</value></data><data name="&gt;&gt;radioKey1B.ZOrder" xml:space="preserve"><value>0</value></data>
+  <data name="radioKey2B.Text" xml:space="preserve"><value>KeyB</value></data>
+  <data name="radioKey2B.Size" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABNTeXN0
+ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAgAAAEcAAAAYAAAACw==</value></data><data name="&gt;&gt;radioKey2A.Type" xml:space="preserve"><value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></data>
+  <data name="&gt;&gt;radioKey2A.Name" xml:space="preserve"><value>radioKey2A</value></data>
+  <data name="label6.Size" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABNTeXN0
+ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAgAAADkAAAAUAAAACw==</value></data><data name="label6.Text" xml:space="preserve"><value>扇区号</value></data>
+  <data name="label6.Dock" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+AB5TeXN0ZW0uV2luZG93cy5Gb3Jtcy5Eb2NrU3R5bGUBAAAAB3ZhbHVlX18ACAIAAAAFAAAACw==</value></data><data name="label4.TextAlign" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAAB9TeXN0
+ZW0uRHJhd2luZy5Db250ZW50QWxpZ25tZW50AQAAAAd2YWx1ZV9fAAgCAAAAIAAAAAs=</value></data><data name="button2.AutoSizeMode" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+ACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5BdXRvU2l6ZU1vZGUBAAAAB3ZhbHVlX18ACAIAAAAAAAAA
+Cw==</value></data><data name="&gt;&gt;radioKey2B.Type" xml:space="preserve"><value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></data>
+  <data name="&gt;&gt;radioKey2B.Name" xml:space="preserve"><value>radioKey2B</value></data>
+  <data name="&gt;&gt;sector2.Parent" xml:space="preserve"><value>tableLayoutPanel2</value></data>
+  <data name="label4.Size" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABNTeXN0
+ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAgAAAEcAAAAUAAAACw==</value></data><data name="label4.Text" xml:space="preserve"><value>类型</value></data>
+  <data name="label4.Dock" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+AB5TeXN0ZW0uV2luZG93cy5Gb3Jtcy5Eb2NrU3R5bGUBAAAAB3ZhbHVlX18ACAIAAAAFAAAACw==</value></data><data name="label5.Text" xml:space="preserve"><value>类型</value></data>
+  <data name="label5.Size" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABNTeXN0
+ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAgAAAEcAAAAUAAAACw==</value></data><data name="label5.Dock" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+AB5TeXN0ZW0uV2luZG93cy5Gb3Jtcy5Eb2NrU3R5bGUBAAAAB3ZhbHVlX18ACAIAAAAFAAAACw==</value></data><data name="label2.TextAlign" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAAB9TeXN0
+ZW0uRHJhd2luZy5Db250ZW50QWxpZ25tZW50AQAAAAd2YWx1ZV9fAAgCAAAAIAAAAAs=</value></data><data name="tableLayoutPanel5.TabIndex" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>4</value></data>
+  <data name="groupBox2.Size" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABNTeXN0
+ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAgAAALYBAABTAAAACw==</value></data><data name="groupBox2.Text" xml:space="preserve"><value>目标扇区解密设置</value></data>
+  <data name="groupBox2.Dock" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+AB5TeXN0ZW0uV2luZG93cy5Gb3Jtcy5Eb2NrU3R5bGUBAAAAB3ZhbHVlX18ACAIAAAAFAAAACw==</value></data><data name="&gt;&gt;sector2.Name" xml:space="preserve"><value>sector2</value></data>
+  <data name="&gt;&gt;sector2.Type" xml:space="preserve"><value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></data>
+  <data name="keyEdit.Dock" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+AB5TeXN0ZW0uV2luZG93cy5Gb3Jtcy5Eb2NrU3R5bGUBAAAAB3ZhbHVlX18ACAIAAAAFAAAACw==</value></data><data name="keyEdit.Text" xml:space="preserve"><value>ffffffffffff</value></data>
+  <data name="keyEdit.Size" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABNTeXN0
+ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAgAAAIYAAAAaAAAACw==</value></data><data name="label2.TabIndex" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>0</value></data>
+  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve"><value>1</value></data>
+  <data name="groupBox1.Text" xml:space="preserve"><value>目标卡-已知信息</value></data>
+  <data name="groupBox1.Size" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABNTeXN0
+ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAgAAALYBAABNAAAACw==</value></data><data name="groupBox1.Dock" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+AB5TeXN0ZW0uV2luZG93cy5Gb3Jtcy5Eb2NrU3R5bGUBAAAAB3ZhbHVlX18ACAIAAAAFAAAACw==</value></data><data name="&gt;&gt;radioKey2B.ZOrder" xml:space="preserve"><value>0</value></data>
+  <data name="button2.AutoSize" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>True</value></data>
+  <data name="tableLayoutPanel4.RowCount" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>1</value></data>
+  <data name="&gt;&gt;checkBoxColOnly.Name" xml:space="preserve"><value>checkBoxColOnly</value></data>
+  <data name="&gt;&gt;checkBoxColOnly.Type" xml:space="preserve"><value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></data>
+  <data name="&gt;&gt;flowLayoutPanel1.Name" xml:space="preserve"><value>flowLayoutPanel1</value></data>
+  <data name="&gt;&gt;flowLayoutPanel1.Type" xml:space="preserve"><value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></data>
+  <data name="sector1.Dock" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+AB5TeXN0ZW0uV2luZG93cy5Gb3Jtcy5Eb2NrU3R5bGUBAAAAB3ZhbHVlX18ACAIAAAAFAAAACw==</value></data><data name="sector1.Text" xml:space="preserve"><value>0</value></data>
+  <data name="sector1.Size" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABNTeXN0
+ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAgAAADkAAAAaAAAACw==</value></data><data name="groupBox1.AutoSize" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>True</value></data>
+  <data name="groupBox2.AutoSize" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>True</value></data>
+  <data name="&gt;&gt;radioKey1B.Parent" xml:space="preserve"><value>tableLayoutPanel1</value></data>
+  <data name="sector2.Dock" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+AB5TeXN0ZW0uV2luZG93cy5Gb3Jtcy5Eb2NrU3R5bGUBAAAAB3ZhbHVlX18ACAIAAAAFAAAACw==</value></data><data name="sector2.Size" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABNTeXN0
+ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAgAAADkAAAAaAAAACw==</value></data><data name="tableLayoutPanel3.RowCount" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>3</value></data>
+  <data name="tableLayoutPanel1.AutoSize" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>True</value></data>
+  <data name="tableLayoutPanel3.TabIndex" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>18</value></data>
+  <data name="flowLayoutPanel1.AutoSizeMode" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+ACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5BdXRvU2l6ZU1vZGUBAAAAB3ZhbHVlX18ACAIAAAAAAAAA
+Cw==</value></data><data name="tableLayoutPanel1.LayoutSettings" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+AChTeXN0ZW0uV2luZG93cy5Gb3Jtcy5UYWJsZUxheW91dFNldHRpbmdzAQAAABBTZXJpYWxpemVk
+U3RyaW5nAQIAAAAGAwAAAMkFPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTE2Ij8+
+PFRhYmxlTGF5b3V0U2V0dGluZ3M+PENvbnRyb2xzPjxDb250cm9sIE5hbWU9InJhZGlvS2V5MUIi
+IFJvdz0iMSIgUm93U3Bhbj0iMSIgQ29sdW1uPSIzIiBDb2x1bW5TcGFuPSIxIiAvPjxDb250cm9s
+IE5hbWU9ImxhYmVsMiIgUm93PSIwIiBSb3dTcGFuPSIxIiBDb2x1bW49IjAiIENvbHVtblNwYW49
+IjEiIC8+PENvbnRyb2wgTmFtZT0icmFkaW9LZXkxQSIgUm93PSIxIiBSb3dTcGFuPSIxIiBDb2x1
+bW49IjIiIENvbHVtblNwYW49IjEiIC8+PENvbnRyb2wgTmFtZT0ia2V5RWRpdCIgUm93PSIxIiBS
+b3dTcGFuPSIxIiBDb2x1bW49IjAiIENvbHVtblNwYW49IjEiIC8+PENvbnRyb2wgTmFtZT0ibGFi
+ZWw0IiBSb3c9IjAiIFJvd1NwYW49IjEiIENvbHVtbj0iMiIgQ29sdW1uU3Bhbj0iMSIgLz48Q29u
+dHJvbCBOYW1lPSJsYWJlbDMiIFJvdz0iMCIgUm93U3Bhbj0iMSIgQ29sdW1uPSIxIiBDb2x1bW5T
+cGFuPSIxIiAvPjxDb250cm9sIE5hbWU9InNlY3RvcjEiIFJvdz0iMSIgUm93U3Bhbj0iMSIgQ29s
+dW1uPSIxIiBDb2x1bW5TcGFuPSIxIiAvPjwvQ29udHJvbHM+PENvbHVtbnMgU3R5bGVzPSJBdXRv
+U2l6ZSwwLEF1dG9TaXplLDAsQXV0b1NpemUsMCxBdXRvU2l6ZSwwIiAvPjxSb3dzIFN0eWxlcz0i
+QXV0b1NpemUsMCxBdXRvU2l6ZSwwIiAvPjwvVGFibGVMYXlvdXRTZXR0aW5ncz4L</value></data><data name="&gt;&gt;sector2.ZOrder" xml:space="preserve"><value>4</value></data>
+  <data name="flowLayoutPanel1.AutoSize" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>True</value></data>
+  <data name="&gt;&gt;button1.Parent" xml:space="preserve"><value>tableLayoutPanel5</value></data>
+  <data name="tableLayoutPanel4.TabIndex" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>18</value></data>
+  <data name="&gt;&gt;radioKey2B.Parent" xml:space="preserve"><value>tableLayoutPanel2</value></data>
+  <data name="button1.TabIndex" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>0</value></data>
+  <data name="radioKey2A.AutoSize" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>True</value></data>
+  <data name="label1.TextAlign" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAAB9TeXN0
+ZW0uRHJhd2luZy5Db250ZW50QWxpZ25tZW50AQAAAAd2YWx1ZV9fAAgCAAAAIAAAAAs=</value></data><data name="&gt;&gt;button1.Name" xml:space="preserve"><value>button1</value></data>
+  <data name="&gt;&gt;button1.Type" xml:space="preserve"><value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></data>
+  <data name="radioKey1B.AutoSize" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>True</value></data>
+  <data name="&gt;&gt;button2.Name" xml:space="preserve"><value>button2</value></data>
+  <data name="&gt;&gt;button2.Type" xml:space="preserve"><value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></data>
+  <data name="label5.AutoSize" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>True</value></data>
+  <data name="sector1.Location" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABRTeXN0
+ZW0uRHJhd2luZy5Qb2ludAIAAAABeAF5AAAICAIAAACPAAAAFwAAAAs=</value></data><data name="label6.AutoSize" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>True</value></data>
+  <data name="&gt;&gt;tableLayoutPanel3.ZOrder" xml:space="preserve"><value>0</value></data>
+  <data name="&gt;&gt;checkBoxColOnly.ZOrder" xml:space="preserve"><value>1</value></data>
+  <data name="checkBoxColOnly.Location" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABRTeXN0
+ZW0uRHJhd2luZy5Qb2ludAIAAAABeAF5AAAICAIAAAADAAAAAwAAAAs=</value></data><data name="radioKey1A.AutoSize" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>True</value></data>
+  <data name="radioKey2B.TabIndex" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>15</value></data>
+  <data name="&gt;&gt;sector1.Parent" xml:space="preserve"><value>tableLayoutPanel1</value></data>
+  <data name="tableLayoutPanel2.TabIndex" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>17</value></data>
+  <data name="radioKey1B.Text" xml:space="preserve"><value>KeyB</value></data>
+  <data name="radioKey1B.Size" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABNTeXN0
+ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAgAAAEcAAAAYAAAACw==</value></data><data name="&gt;&gt;sector1.ZOrder" xml:space="preserve"><value>6</value></data>
+  <data name="tableLayoutPanel4.ColumnCount" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>2</value></data>
+  <data name="&gt;&gt;radioKey1B.Type" xml:space="preserve"><value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></data>
+  <data name="&gt;&gt;radioKey1B.Name" xml:space="preserve"><value>radioKey1B</value></data>
+  <data name="radioKey1A.Location" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABRTeXN0
+ZW0uRHJhd2luZy5Qb2ludAIAAAABeAF5AAAICAIAAADOAAAAFwAAAAs=</value></data><data name="groupBox1.TabIndex" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>2</value></data>
+  <data name="tableLayoutPanel2.LayoutSettings" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+AChTeXN0ZW0uV2luZG93cy5Gb3Jtcy5UYWJsZUxheW91dFNldHRpbmdzAQAAABBTZXJpYWxpemVk
+U3RyaW5nAQIAAAAGAwAAALoEPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTE2Ij8+
+PFRhYmxlTGF5b3V0U2V0dGluZ3M+PENvbnRyb2xzPjxDb250cm9sIE5hbWU9InJhZGlvS2V5MkIi
+IFJvdz0iMSIgUm93U3Bhbj0iMSIgQ29sdW1uPSIzIiBDb2x1bW5TcGFuPSIxIiAvPjxDb250cm9s
+IE5hbWU9InJhZGlvS2V5MkEiIFJvdz0iMSIgUm93U3Bhbj0iMSIgQ29sdW1uPSIyIiBDb2x1bW5T
+cGFuPSIxIiAvPjxDb250cm9sIE5hbWU9ImxhYmVsNiIgUm93PSIwIiBSb3dTcGFuPSIxIiBDb2x1
+bW49IjEiIENvbHVtblNwYW49IjEiIC8+PENvbnRyb2wgTmFtZT0ibGFiZWw1IiBSb3c9IjAiIFJv
+d1NwYW49IjEiIENvbHVtbj0iMiIgQ29sdW1uU3Bhbj0iMSIgLz48Q29udHJvbCBOYW1lPSJzZWN0
+b3IyIiBSb3c9IjEiIFJvd1NwYW49IjEiIENvbHVtbj0iMSIgQ29sdW1uU3Bhbj0iMSIgLz48L0Nv
+bnRyb2xzPjxDb2x1bW5zIFN0eWxlcz0iQXV0b1NpemUsMCxBdXRvU2l6ZSwwLEF1dG9TaXplLDAs
+QXV0b1NpemUsMCIgLz48Um93cyBTdHlsZXM9IkF1dG9TaXplLDAsQXV0b1NpemUsMCIgLz48L1Rh
+YmxlTGF5b3V0U2V0dGluZ3M+Cw==</value></data><data name="radioKey2A.TabIndex" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>14</value></data>
+  <data name="&gt;&gt;groupBox2.Type" xml:space="preserve"><value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></data>
+  <data name="button1.Location" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABRTeXN0
+ZW0uRHJhd2luZy5Qb2ludAIAAAABeAF5AAAICAIAAABAAAAAAwAAAAs=</value></data><data name="&gt;&gt;groupBox2.Name" xml:space="preserve"><value>groupBox2</value></data>
+  <data name="radioKey1A.Text" xml:space="preserve"><value>KeyA</value></data>
+  <data name="radioKey1A.Size" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABNTeXN0
+ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAgAAAEcAAAAYAAAACw==</value></data><data name="tableLayoutPanel1.Location" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABRTeXN0
+ZW0uRHJhd2luZy5Qb2ludAIAAAABeAF5AAAICAIAAAADAAAAFgAAAAs=</value></data><data name="label2.Location" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABRTeXN0
+ZW0uRHJhd2luZy5Qb2ludAIAAAABeAF5AAAICAIAAAADAAAAAAAAAAs=</value></data><data name="&gt;&gt;checkBoxColOnly.Parent" xml:space="preserve"><value>tableLayoutPanel4</value></data>
+  <data name="label6.TextAlign" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAAB9TeXN0
+ZW0uRHJhd2luZy5Db250ZW50QWxpZ25tZW50AQAAAAd2YWx1ZV9fAAgCAAAAIAAAAAs=</value></data><data name="&gt;&gt;radioKey1A.Type" xml:space="preserve"><value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></data>
+  <data name="&gt;&gt;radioKey1A.Name" xml:space="preserve"><value>radioKey1A</value></data>
+  <data name="label1.Location" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABRTeXN0
+ZW0uRHJhd2luZy5Qb2ludAIAAAABeAF5AAAICAIAAAADAAAAAAAAAAs=</value></data><data name="&gt;&gt;tableLayoutPanel5.Name" xml:space="preserve"><value>tableLayoutPanel5</value></data>
+  <data name="&gt;&gt;keyEdit.Name" xml:space="preserve"><value>keyEdit</value></data>
+  <data name="&gt;&gt;keyEdit.Type" xml:space="preserve"><value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></data>
+  <data name="&gt;&gt;tableLayoutPanel5.Type" xml:space="preserve"><value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></data>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve"><value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></data>
+  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve"><value>groupBox1</value></data>
+  <data name="&gt;&gt;tableLayoutPanel3.Name" xml:space="preserve"><value>tableLayoutPanel3</value></data>
+  <data name="&gt;&gt;tableLayoutPanel3.Type" xml:space="preserve"><value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></data>
+  <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>2</value></data>
+  <data name="&gt;&gt;tableLayoutPanel4.Name" xml:space="preserve"><value>tableLayoutPanel4</value></data>
+  <data name="&gt;&gt;tableLayoutPanel4.Type" xml:space="preserve"><value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></data>
+  <data name="&gt;&gt;tableLayoutPanel1.Name" xml:space="preserve"><value>tableLayoutPanel1</value></data>
+  <data name="&gt;&gt;tableLayoutPanel1.Type" xml:space="preserve"><value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></data>
+  <data name="&gt;&gt;tableLayoutPanel3.Parent" xml:space="preserve"><value>$this</value></data>
+  <data name="&gt;&gt;tableLayoutPanel2.Name" xml:space="preserve"><value>tableLayoutPanel2</value></data>
+  <data name="&gt;&gt;tableLayoutPanel2.Type" xml:space="preserve"><value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></data>
+  <data name="tableLayoutPanel5.Dock" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+AB5TeXN0ZW0uV2luZG93cy5Gb3Jtcy5Eb2NrU3R5bGUBAAAAB3ZhbHVlX18ACAIAAAAEAAAACw==</value></data><data name="tableLayoutPanel5.Size" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABNTeXN0
+ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAgAAAHoAAAAkAAAACw==</value></data><data name="checkBoxColOnly.TabIndex" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>17</value></data>
+  <data name="tableLayoutPanel5.AutoSize" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>True</value></data>
+  <data name="tableLayoutPanel3.ColumnCount" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>1</value></data>
+  <data name="tableLayoutPanel3.Dock" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+AB5TeXN0ZW0uV2luZG93cy5Gb3Jtcy5Eb2NrU3R5bGUBAAAAB3ZhbHVlX18ACAIAAAAFAAAACw==</value></data><data name="tableLayoutPanel3.Size" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABNTeXN0
+ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAgAAALwBAAAqAQAACw==</value></data><data name="$this.AutoSizeMode" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+ACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5BdXRvU2l6ZU1vZGUBAAAAB3ZhbHVlX18ACAIAAAAAAAAA
+Cw==</value></data><data name="&gt;&gt;tableLayoutPanel2.ZOrder" xml:space="preserve"><value>0</value></data>
+  <data name="tableLayoutPanel3.AutoSize" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>True</value></data>
+  <data name="tableLayoutPanel4.Dock" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+AB5TeXN0ZW0uV2luZG93cy5Gb3Jtcy5Eb2NrU3R5bGUBAAAAB3ZhbHVlX18ACAIAAAAFAAAACw==</value></data><data name="tableLayoutPanel4.Size" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABNTeXN0
+ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAgAAALABAAA6AAAACw==</value></data><data name="label5.TabIndex" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>13</value></data>
+  <data name="tableLayoutPanel4.Location" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABRTeXN0
+ZW0uRHJhd2luZy5Qb2ludAIAAAABeAF5AAAICAIAAAADAAAAFgAAAAs=</value></data><data name="tableLayoutPanel1.Dock" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+AB5TeXN0ZW0uV2luZG93cy5Gb3Jtcy5Eb2NrU3R5bGUBAAAAB3ZhbHVlX18ACAIAAAAFAAAACw==</value></data><data name="tableLayoutPanel1.Size" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABNTeXN0
+ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAgAAALABAAA0AAAACw==</value></data><data name="tableLayoutPanel3.Location" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABRTeXN0
+ZW0uRHJhd2luZy5Qb2ludAIAAAABeAF5AAAICAIAAAAAAAAAAAAAAAs=</value></data><data name="keyEdit.Location" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABRTeXN0
+ZW0uRHJhd2luZy5Qb2ludAIAAAABeAF5AAAICAIAAAADAAAAFwAAAAs=</value></data><data name="tableLayoutPanel2.Dock" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+AB5TeXN0ZW0uV2luZG93cy5Gb3Jtcy5Eb2NrU3R5bGUBAAAAB3ZhbHVlX18ACAIAAAAFAAAACw==</value></data><data name="tableLayoutPanel2.Size" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABNTeXN0
+ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAgAAACEBAAA0AAAACw==</value></data><data name="&gt;&gt;groupBox1.Parent" xml:space="preserve"><value>tableLayoutPanel3</value></data>
+  <data name="sector2.TabIndex" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>11</value></data>
+  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve"><value>4</value></data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>True</value></data>
+  <data name="label5.TextAlign" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAAB9TeXN0
+ZW0uRHJhd2luZy5Db250ZW50QWxpZ25tZW50AQAAAAd2YWx1ZV9fAAgCAAAAIAAAAAs=</value></data><data name="label2.AutoSize" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>True</value></data>
+  <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve"><value>tableLayoutPanel3</value></data>
+  <data name="tableLayoutPanel5.AutoSizeMode" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+ACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5BdXRvU2l6ZU1vZGUBAAAAB3ZhbHVlX18ACAIAAAAAAAAA
+Cw==</value></data><data name="label3.Location" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABRTeXN0
+ZW0uRHJhd2luZy5Qb2ludAIAAAABeAF5AAAICAIAAACPAAAAAAAAAAs=</value></data><data name="radioKey1A.TabIndex" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>14</value></data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve"><value>1</value></data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve"><value>0</value></data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve"><value>FormHardNes</value></data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve"><value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve"><value>flowLayoutPanel1</value></data>
+  <data name="&gt;&gt;tableLayoutPanel2.Parent" xml:space="preserve"><value>tableLayoutPanel4</value></data>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve"><value>tableLayoutPanel1</value></data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve"><value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve"><value>label2</value></data>
+  <data name="button1.AutoSizeMode" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+ACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5BdXRvU2l6ZU1vZGUBAAAAB3ZhbHVlX18ACAIAAAAAAAAA
+Cw==</value></data><data name="&gt;&gt;label3.Type" xml:space="preserve"><value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve"><value>label3</value></data>
+  <data name="checkBoxColOnly.Dock" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+AB5TeXN0ZW0uV2luZG93cy5Gb3Jtcy5Eb2NrU3R5bGUBAAAAB3ZhbHVlX18ACAIAAAAFAAAACw==</value></data><data name="checkBoxColOnly.Text" xml:space="preserve"><value>只采集不计算</value></data>
+  <data name="checkBoxColOnly.Size" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABNTeXN0
+ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAgAAAIMAAAA0AAAACw==</value></data><data name="flowLayoutPanel1.TabIndex" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>17</value></data>
+  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve"><value>2</value></data>
+  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve"><value>0</value></data>
+  <data name="tableLayoutPanel5.LayoutSettings" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+AChTeXN0ZW0uV2luZG93cy5Gb3Jtcy5UYWJsZUxheW91dFNldHRpbmdzAQAAABBTZXJpYWxpemVk
+U3RyaW5nAQIAAAAGAwAAAL0CPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTE2Ij8+
+PFRhYmxlTGF5b3V0U2V0dGluZ3M+PENvbnRyb2xzPjxDb250cm9sIE5hbWU9ImJ1dHRvbjIiIFJv
+dz0iMCIgUm93U3Bhbj0iMSIgQ29sdW1uPSIwIiBDb2x1bW5TcGFuPSIxIiAvPjxDb250cm9sIE5h
+bWU9ImJ1dHRvbjEiIFJvdz0iMCIgUm93U3Bhbj0iMSIgQ29sdW1uPSIxIiBDb2x1bW5TcGFuPSIx
+IiAvPjwvQ29udHJvbHM+PENvbHVtbnMgU3R5bGVzPSJQZXJjZW50LDUwLFBlcmNlbnQsNTAiIC8+
+PFJvd3MgU3R5bGVzPSJQZXJjZW50LDUwIiAvPjwvVGFibGVMYXlvdXRTZXR0aW5ncz4L</value></data><data name="&gt;&gt;label1.Type" xml:space="preserve"><value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve"><value>label1</value></data>
+  <data name="groupBox2.Location" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABRTeXN0
+ZW0uRHJhd2luZy5Qb2ludAIAAAABeAF5AAAICAIAAAADAAAAVgAAAAs=</value></data><data name="&gt;&gt;label6.Type" xml:space="preserve"><value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></data>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve"><value>label6</value></data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve"><value>tableLayoutPanel1</value></data>
+  <data name="groupBox1.Location" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABRTeXN0
+ZW0uRHJhd2luZy5Qb2ludAIAAAABeAF5AAAICAIAAAADAAAAAwAAAAs=</value></data><data name="button1.Text" xml:space="preserve"><value>执行!</value></data>
+  <data name="button1.Size" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABNTeXN0
+ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAgAAADcAAAAeAAAACw==</value></data><data name="&gt;&gt;label4.Type" xml:space="preserve"><value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve"><value>label4</value></data>
+  <data name="&gt;&gt;button2.ZOrder" xml:space="preserve"><value>0</value></data>
+  <data name="tableLayoutPanel4.AutoSizeMode" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+ACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5BdXRvU2l6ZU1vZGUBAAAAB3ZhbHVlX18ACAIAAAAAAAAA
+Cw==</value></data><data name="button2.Dock" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+AB5TeXN0ZW0uV2luZG93cy5Gb3Jtcy5Eb2NrU3R5bGUBAAAAB3ZhbHVlX18ACAIAAAAFAAAACw==</value></data><data name="button2.Size" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABNTeXN0
+ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAgAAADcAAAAeAAAACw==</value></data><data name="button2.Text" xml:space="preserve"><value>取消</value></data>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve"><value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></data>
+  <data name="&gt;&gt;label5.Name" xml:space="preserve"><value>label5</value></data>
+  <data name="&gt;&gt;keyEdit.Parent" xml:space="preserve"><value>tableLayoutPanel1</value></data>
+  <data name="tableLayoutPanel5.RowCount" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>1</value></data>
+  <data name="sector1.TabIndex" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>11</value></data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>3</value></data>
+  <data name="radioKey2B.AutoSize" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>True</value></data>
+  <data name="button2.Location" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABRTeXN0
+ZW0uRHJhd2luZy5Qb2ludAIAAAABeAF5AAAICAIAAAADAAAAAwAAAAs=</value></data><data name="tableLayoutPanel1.AutoSizeMode" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAA
+ACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5BdXRvU2l6ZU1vZGUBAAAAB3ZhbHVlX18ACAIAAAAAAAAA
+Cw==</value></data><data name="tableLayoutPanel2.RowCount" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>2</value></data>
+  <data name="sector2.Location" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABRTeXN0
+ZW0uRHJhd2luZy5Qb2ludAIAAAABeAF5AAAICAIAAAADAAAAFwAAAAs=</value></data><data name="&gt;&gt;button2.Parent" xml:space="preserve"><value>tableLayoutPanel5</value></data>
+  <data name="flowLayoutPanel1.Location" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABRTeXN0
+ZW0uRHJhd2luZy5Qb2ludAIAAAABeAF5AAAICAIAAAADAAAArwAAAAs=</value></data><data name="label4.Location" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABRTeXN0
+ZW0uRHJhd2luZy5Qb2ludAIAAAABeAF5AAAICAIAAADOAAAAAAAAAAs=</value></data><data name="radioKey2B.Location" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABRTeXN0
+ZW0uRHJhd2luZy5Qb2ludAIAAAABeAF5AAAICAIAAACPAAAAFwAAAAs=</value></data><data name="label4.TabIndex" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>13</value></data>
+  <data name="&gt;&gt;tableLayoutPanel5.ZOrder" xml:space="preserve"><value>1</value></data>
+  <data name="keyEdit.TabIndex" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>10</value></data>
+  <data name="radioKey1B.TabIndex" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>15</value></data>
+  <data name="checkBoxColOnly.AutoSize" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>True</value></data>
+  <data name="$this.AutoScaleDimensions" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABRTeXN0
+ZW0uRHJhd2luZy5TaXplRgIAAAAFd2lkdGgGaGVpZ2h0AAALCwIAAAAAABBBAACgQQs=</value></data><data name="&gt;&gt;tableLayoutPanel5.Parent" xml:space="preserve"><value>flowLayoutPanel1</value></data>
+  <data name="tableLayoutPanel4.AutoSize" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>True</value></data>
+  <data name="&gt;&gt;radioKey2A.ZOrder" xml:space="preserve"><value>1</value></data>
+  <data name="label6.Location" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABRTeXN0
+ZW0uRHJhd2luZy5Qb2ludAIAAAABeAF5AAAICAIAAAADAAAAAAAAAAs=</value></data><data name="tableLayoutPanel2.AutoSize" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>True</value></data>
+  <data name="label5.Location" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABRTeXN0
+ZW0uRHJhd2luZy5Qb2ludAIAAAABeAF5AAAICAIAAABCAAAAAAAAAAs=</value></data><data name="&gt;&gt;keyEdit.ZOrder" xml:space="preserve"><value>3</value></data>
+  <data name="tableLayoutPanel5.ColumnCount" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value>2</value></data>
+  </root>
