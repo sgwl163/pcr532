@@ -1,29 +1,46 @@
-import { useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { invoke } from "@tauri-apps/api/core";
-import { CheckCircle2, CircleAlert, Cpu, LoaderCircle, Monitor, Nfc, TerminalSquare } from "lucide-react";
+import {
+  CheckCircle2,
+  ChevronDown,
+  ChevronUp,
+  Cpu,
+  FileSearch,
+  Info,
+  LoaderCircle,
+  Nfc,
+  TerminalSquare,
+  Trash2,
+} from "lucide-react";
 
 import { ReaderPanel } from "@/components/reader-panel";
 import { CardPanel } from "@/components/card-panel";
 import { ReaderController } from "@/lib/reader";
 import { readerApi } from "@/lib/desktop-reader";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 
-type AppInfo = {
-  name: string;
-  version: string;
-  os: string;
-  arch: string;
-};
+type AppInfo = { name: string; version: string; os: string; arch: string };
 
 function App() {
   const [reader] = useState(() => new ReaderController(readerApi));
+  const state = useSyncExternalStore(reader.subscribe, reader.getState);
+  const [showDiagnostics, setShowDiagnostics] = useState(false);
+  const [logCollapsed, setLogCollapsed] = useState(false);
   const [appInfo, setAppInfo] = useState<AppInfo | null>(null);
   const [isChecking, setIsChecking] = useState(false);
   const [error, setError] = useState("");
+  const connection = state.snapshot?.connection;
+  const active = !["idle", "scanning"].includes(state.activity);
+  const activity = {
+    idle: "空闲",
+    scanning: "检测设备",
+    connecting: "连接中",
+    disconnecting: "断开中",
+    findingCard: "寻卡中",
+    readingCard: "读取中",
+    writingCard: "写入校验中",
+    checkingKeys: "字典密钥检测中",
+  }[state.activity];
 
   async function checkBackend() {
     if (isChecking) return;
@@ -40,68 +57,172 @@ function App() {
   }
 
   return (
-    <main className="mx-auto flex min-h-svh w-full max-w-5xl flex-col gap-5 px-5 py-6 sm:px-8 sm:py-8">
-      <header className="flex flex-wrap items-center gap-3 sm:gap-4">
-        <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-sm">
-          <Nfc className="size-6" aria-hidden="true" />
+    <main className="desktop-workbench">
+      <header className="app-header">
+        <div className="flex items-center gap-2.5">
+          <div className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+            <Nfc className="size-5" aria-hidden="true" />
+          </div>
+          <div>
+            <h1 className="text-sm font-semibold tracking-tight">
+              PCR532{" "}
+              <span className="ml-1 font-normal text-muted-foreground">
+                NFC 工作台
+              </span>
+            </h1>
+            <p className="text-[10px] text-muted-foreground">
+              PN532 · ISO 14443A · 本地设备
+            </p>
+          </div>
         </div>
-        <div>
-          <p className="text-[11px] font-semibold tracking-[0.18em] text-muted-foreground">PCR532 DESKTOP</p>
-          <h1 className="mt-1 text-xl font-semibold tracking-tight">读卡器工作台</h1>
+        <div className="ml-auto flex items-center gap-2">
+          <span className="connection-pill">
+            <span
+              className={`status-dot ${connection && !state.scanError ? "is-connected" : ""}`}
+            />
+            {connection && !state.scanError
+              ? `${connection.portName} 已连接`
+              : "设备未连接"}
+          </span>
+          <Button
+            variant="ghost"
+            size="sm"
+            aria-expanded={showDiagnostics}
+            onClick={() => setShowDiagnostics(!showDiagnostics)}
+          >
+            <Info aria-hidden="true" />
+            关于与诊断
+          </Button>
         </div>
-        <Badge variant="outline" className="ml-auto h-auto gap-1.5 bg-card px-3 py-1.5">
-          <Monitor className="size-3.5" aria-hidden="true" />
-          Tauri 桌面端
-        </Badge>
       </header>
-
-      <Separator />
-      <ReaderPanel controller={reader} />
-      <CardPanel controller={reader} />
-
-      <section aria-labelledby="connection-title">
-        <Card className="gap-4 py-5 shadow-sm">
-          <CardHeader className="gap-3 px-6 sm:px-8">
-            <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
-              <div className="space-y-2">
-                <p className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
-                  <TerminalSquare className="size-3.5" aria-hidden="true" />
-                  开发诊断
-                </p>
-                <CardTitle>
-                  <h2 id="connection-title" className="text-base font-semibold">验证 Rust 后端</h2>
-                </CardTitle>
-                <CardDescription className="leading-6">只读取应用版本及系统信息，与读卡器连接状态无关。</CardDescription>
-              </div>
-              <Button type="button" variant="outline" disabled={isChecking} onClick={checkBackend}>
-                {isChecking ? <LoaderCircle className="motion-safe:animate-spin" aria-hidden="true" /> : <Cpu aria-hidden="true" />}
-                {isChecking ? "正在验证…" : "测试后端通信"}
-              </Button>
-            </div>
-          </CardHeader>
-          <CardContent className="px-6 sm:px-8">
-            <div role="status" aria-live="polite" aria-atomic="true">
-              <Alert role="presentation" variant={error ? "destructive" : "default"} className="bg-muted/30">
-                {appInfo ? <CheckCircle2 aria-hidden="true" /> : error ? <CircleAlert aria-hidden="true" /> : <TerminalSquare aria-hidden="true" />}
-                <AlertTitle>{appInfo ? "通信成功" : error ? "通信失败" : "等待测试"}</AlertTitle>
-                <AlertDescription className="break-words text-xs leading-6 sm:text-sm">
-                  {appInfo ? (
-                    <span>{appInfo.name} · v{appInfo.version} · {appInfo.os} / {appInfo.arch}</span>
-                  ) : error ? (
-                    <span>{error}</span>
-                  ) : (
-                    <span>点击按钮，验证 React 与 Rust 的本地通信。</span>
-                  )}
-                </AlertDescription>
-              </Alert>
-            </div>
-          </CardContent>
-        </Card>
+      <nav className="app-toolbar" aria-label="工作台工具栏">
+        <span className="toolbar-tab">
+          <Nfc className="size-3.5" aria-hidden="true" />
+          主工作台
+        </span>
+        <Button
+          size="sm"
+          variant="ghost"
+          onClick={() =>
+            document.getElementById("content-tab")?.click()
+          }
+        >
+          <FileSearch aria-hidden="true" />
+          查看内容与日期
+        </Button>
+        <span className="ml-auto hidden text-[11px] text-muted-foreground sm:inline">
+          读取原数据 → 编辑预览 → 确认写入 → 读回校验
+        </span>
+      </nav>
+      {showDiagnostics && (
+        <section className="diagnostics-strip" aria-label="开发诊断">
+          <div className="flex flex-wrap items-center gap-3">
+            <Cpu className="size-4 text-primary" aria-hidden="true" />
+            <p className="flex-1 text-xs">
+              Tauri 2 桌面端 · v0.1.0。仅测试 React 与 Rust 通信，不访问硬件。
+            </p>
+            <Button
+              size="sm"
+              variant="outline"
+              disabled={isChecking}
+              onClick={checkBackend}
+            >
+              {isChecking && (
+                <LoaderCircle
+                  className="motion-safe:animate-spin"
+                  aria-hidden="true"
+                />
+              )}
+              测试后端通信
+            </Button>
+          </div>
+          <p role="status" className="mt-2 text-xs">
+            {appInfo
+              ? `${appInfo.name} · v${appInfo.version} · ${appInfo.os} / ${appInfo.arch}`
+              : error || "等待测试"}
+          </p>
+        </section>
+      )}
+      <CardPanel
+        controller={reader}
+        devicePanel={<ReaderPanel controller={reader} />}
+      />
+      <section className="session-log work-pane" data-collapsed={logCollapsed} aria-labelledby="log-title">
+        <header className="pane-heading">
+          <h2 id="log-title" className="flex items-center gap-2">
+            <TerminalSquare
+              className="size-4 text-primary"
+              aria-hidden="true"
+            />
+            操作日志{" "}
+            <span className="font-normal text-muted-foreground">
+              / 当前会话
+            </span>
+          </h2>
+          <div className="flex items-center gap-1">
+          <Button variant="ghost" size="xs" aria-expanded={!logCollapsed} aria-controls="session-log-content" onClick={() => setLogCollapsed(!logCollapsed)}>
+            {logCollapsed ? <ChevronUp aria-hidden="true" /> : <ChevronDown aria-hidden="true" />}
+            {logCollapsed ? `展开日志（${state.logs.length}）` : "收起日志"}
+          </Button>
+          <Button
+            variant="ghost"
+            size="xs"
+            disabled={!state.logs.length}
+            onClick={reader.clearLogs}
+          >
+            <Trash2 aria-hidden="true" />
+            清除日志
+          </Button>
+          </div>
+        </header>
+        {!logCollapsed && <div
+          id="session-log-content"
+          className="log-scroll"
+          role="log"
+          aria-live="polite"
+          aria-relevant="additions"
+        >
+          {state.logs.length ? (
+            [...state.logs].reverse().map((log) => (
+              <p key={log.id} className={`log-entry log-${log.level}`}>
+                <time className="shrink-0 text-muted-foreground">
+                  {new Date(log.at).toLocaleTimeString("zh-CN", {
+                    hour12: false,
+                  })}
+                </time>
+                <span>{log.message}</span>
+              </p>
+            ))
+          ) : (
+            <p className="text-xs leading-6 text-muted-foreground">
+              等待操作。日志仅保留本次会话的最近 200
+              条状态，不记录密钥或卡片原始内容。
+            </p>
+          )}
+        </div>}
       </section>
-
-      <footer className="flex flex-wrap items-center justify-between gap-2 text-xs leading-6 text-muted-foreground">
-        <span>当前支持：设备连接、卡片识别、授权只读查看</span>
-        <span>只读操作 · v0.1.0</span>
+      <footer className="app-statusbar">
+        <span className="flex items-center gap-1.5">
+          {active ? (
+            <LoaderCircle
+              className="size-3 motion-safe:animate-spin"
+              aria-hidden="true"
+            />
+          ) : (
+            <CheckCircle2 className="size-3" aria-hidden="true" />
+          )}
+          {activity}
+        </span>
+        <span>
+          当前卡号：
+          <span className="font-mono">{state.cardState.card?.uid ?? "—"}</span>
+        </span>
+        <span className="ml-auto">
+          {connection && !state.scanError
+            ? `${connection.portName} / ${connection.baudRate} baud`
+            : "未验证设备"}
+        </span>
+        <span className="hidden sm:inline">受限用户区读写 · v0.1.0</span>
       </footer>
     </main>
   );

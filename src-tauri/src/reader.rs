@@ -4,6 +4,7 @@ use std::time::{Duration, Instant};
 
 use serialport::{SerialPort, SerialPortInfo, SerialPortType};
 
+use crate::cards::{self, CardDump, CardInfo, ReadRequest, WriteRequest, WriteResult};
 use crate::pn532::{self, Firmware};
 
 const BAUD_RATES: &[u32] = &[
@@ -147,7 +148,7 @@ fn exchange<T>(
                         | io::ErrorKind::WouldBlock
                         | io::ErrorKind::Interrupted
                 ) => {}
-            Err(error) => return Err(format!("读取固件失败，设备可能已拔出：{error}")),
+            Err(error) => return Err(format!("读取读卡器响应失败，设备可能已拔出：{error}")),
         }
     }
     Err("PN532 应答超时：串口存在，但读卡器未应答。请检查波特率、设备 UART 模式及接线".into())
@@ -280,6 +281,94 @@ pub async fn connect_reader(
         .map_err(|error| format!("读卡器连接任务失败：{error}"))?
 }
 
+pub(crate) fn with_card_session<T>(
+    manager: &ReaderManager,
+    operation: impl FnOnce(&mut cards::Exchange<'_>) -> Result<T, String>,
+) -> Result<T, String> {
+    let mut state = manager
+        .0
+        .lock()
+        .map_err(|_| "设备状态锁不可用，请重启应用".to_string())?;
+    let session = state
+        .session
+        .as_mut()
+        .ok_or("读卡器未连接，请先连接并验证设备")?;
+    let mut transport_error = None;
+    let result = operation(&mut |payload, response_code| {
+        // A timeout leaves the response boundary unknown. Do not send cleanup or more
+        // commands into that stream; reconnect will cancel the unfinished exchange.
+        if transport_error.is_some() {
+            return Err("串口通信已失效，请重新连接读卡器".into());
+        }
+        let mut frame = pn532::command(payload)?;
+        let response = exchange(session.port.as_mut(), &frame, |bytes| {
+            pn532::parse_response(bytes, response_code)
+        });
+        frame.fill(0); // Includes the wire copy of a supplied authentication key.
+        if let Err(error) = &response {
+            transport_error = Some(format!(
+                "{} 连接已中断：{error}；请重新连接读卡器",
+                session.info.port_name
+            ));
+        }
+        response
+    });
+    if let Some(error) = transport_error {
+        state.session = None;
+        state.connection_error = Some(error);
+    }
+    result
+}
+
+fn scan_connected_card(manager: &ReaderManager) -> Result<Option<CardInfo>, String> {
+    with_card_session(manager, |exchange| cards::scan_card(exchange))
+}
+
+fn read_connected_card(manager: &ReaderManager, request: &ReadRequest) -> Result<CardDump, String> {
+    with_card_session(manager, |exchange| cards::read_card(request, exchange))
+}
+
+#[tauri::command]
+pub async fn scan_card(
+    manager: tauri::State<'_, ReaderManager>,
+) -> Result<Option<CardInfo>, String> {
+    let manager = manager.inner().clone();
+    tauri::async_runtime::spawn_blocking(move || scan_connected_card(&manager))
+        .await
+        .map_err(|error| format!("寻卡任务失败：{error}"))?
+}
+
+#[tauri::command]
+pub async fn read_card(
+    request: ReadRequest,
+    manager: tauri::State<'_, ReaderManager>,
+) -> Result<CardDump, String> {
+    let manager = manager.inner().clone();
+    tauri::async_runtime::spawn_blocking(move || read_connected_card(&manager, &request))
+        .await
+        .map_err(|error| format!("读取卡片任务失败：{error}"))?
+}
+
+fn write_connected_card(
+    manager: &ReaderManager,
+    request: &WriteRequest,
+) -> Result<WriteResult, String> {
+    with_card_session(manager, |exchange| cards::write_card(request, exchange))
+}
+
+#[tauri::command]
+pub async fn write_card(
+    request: WriteRequest,
+    manager: tauri::State<'_, ReaderManager>,
+) -> Result<WriteResult, String> {
+    let manager = manager.inner().clone();
+    tauri::async_runtime::spawn_blocking(move || write_connected_card(&manager, &request))
+        .await
+        .map_err(|_| {
+            "写卡任务异常结束：写入结果未知，请重新连接并读取检查，勿直接重试".to_string()
+        })?
+}
+
 fn disconnect(manager: &ReaderManager) -> Result<(), String> {
     let mut state = manager
         .0
@@ -301,6 +390,317 @@ pub async fn disconnect_reader(manager: tauri::State<'_, ReaderManager>) -> Resu
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    struct ScriptedPort {
+        responses: std::collections::VecDeque<Vec<u8>>,
+        incoming: std::collections::VecDeque<u8>,
+        idle_error: io::ErrorKind,
+        writes: Arc<Mutex<Vec<Vec<u8>>>>,
+    }
+
+    impl io::Read for ScriptedPort {
+        fn read(&mut self, buffer: &mut [u8]) -> io::Result<usize> {
+            if self.incoming.is_empty() {
+                return Err(io::Error::new(self.idle_error, "scripted serial error"));
+            }
+            // Deliberate fragmentation exercises the real UART frame parser.
+            let count = buffer.len().min(self.incoming.len()).min(3);
+            for byte in &mut buffer[..count] {
+                *byte = self.incoming.pop_front().unwrap();
+            }
+            Ok(count)
+        }
+    }
+
+    impl io::Write for ScriptedPort {
+        fn write(&mut self, bytes: &[u8]) -> io::Result<usize> {
+            self.writes.lock().unwrap().push(bytes.to_vec());
+            if let Some(response) = self.responses.pop_front() {
+                self.incoming.extend(response);
+            }
+            Ok(bytes.len())
+        }
+        fn flush(&mut self) -> io::Result<()> {
+            Ok(())
+        }
+    }
+
+    // Device-setting methods are unused by these already-connected session tests.
+    macro_rules! unused_port_method {
+        ($name:ident $(, $arg:ident: $kind:ty)* => $result:ty) => {
+            fn $name(&mut self $(, $arg: $kind)*) -> serialport::Result<$result> {
+                $(let _ = $arg;)*
+                unreachable!("unexpected port setting in card operation")
+            }
+        };
+    }
+
+    impl SerialPort for ScriptedPort {
+        fn name(&self) -> Option<String> {
+            Some("MOCK".into())
+        }
+        fn baud_rate(&self) -> serialport::Result<u32> {
+            Ok(115_200)
+        }
+        fn data_bits(&self) -> serialport::Result<serialport::DataBits> {
+            Ok(serialport::DataBits::Eight)
+        }
+        fn flow_control(&self) -> serialport::Result<serialport::FlowControl> {
+            Ok(serialport::FlowControl::None)
+        }
+        fn parity(&self) -> serialport::Result<serialport::Parity> {
+            Ok(serialport::Parity::None)
+        }
+        fn stop_bits(&self) -> serialport::Result<serialport::StopBits> {
+            Ok(serialport::StopBits::One)
+        }
+        fn timeout(&self) -> Duration {
+            Duration::from_millis(100)
+        }
+        unused_port_method!(set_baud_rate, value: u32 => ());
+        unused_port_method!(set_data_bits, value: serialport::DataBits => ());
+        unused_port_method!(set_flow_control, value: serialport::FlowControl => ());
+        unused_port_method!(set_parity, value: serialport::Parity => ());
+        unused_port_method!(set_stop_bits, value: serialport::StopBits => ());
+        unused_port_method!(set_timeout, value: Duration => ());
+        unused_port_method!(write_request_to_send, value: bool => ());
+        unused_port_method!(write_data_terminal_ready, value: bool => ());
+        unused_port_method!(read_clear_to_send => bool);
+        unused_port_method!(read_data_set_ready => bool);
+        unused_port_method!(read_ring_indicator => bool);
+        unused_port_method!(read_carrier_detect => bool);
+        fn bytes_to_read(&self) -> serialport::Result<u32> {
+            Ok(self.incoming.len() as u32)
+        }
+        fn bytes_to_write(&self) -> serialport::Result<u32> {
+            Ok(0)
+        }
+        fn clear(&self, _: serialport::ClearBuffer) -> serialport::Result<()> {
+            unreachable!()
+        }
+        fn try_clone(&self) -> serialport::Result<Box<dyn SerialPort>> {
+            unreachable!()
+        }
+        fn set_break(&self) -> serialport::Result<()> {
+            unreachable!()
+        }
+        fn clear_break(&self) -> serialport::Result<()> {
+            unreachable!()
+        }
+    }
+
+    fn response(code: u8, data: &[u8]) -> Vec<u8> {
+        let mut bytes = vec![0xd5, code];
+        bytes.extend_from_slice(data);
+        let length = bytes.len() as u8;
+        let mut frame = pn532::ACK.to_vec();
+        frame.extend_from_slice(&[0, 0, 255, length, length.wrapping_neg()]);
+        frame.extend_from_slice(&bytes);
+        frame.push(
+            bytes
+                .iter()
+                .fold(0_u8, |sum, byte| sum.wrapping_add(*byte))
+                .wrapping_neg(),
+        );
+        frame.push(0);
+        frame
+    }
+
+    fn scripted_manager(responses: Vec<Vec<u8>>) -> (ReaderManager, Arc<Mutex<Vec<Vec<u8>>>>) {
+        scripted_manager_with_error(responses, io::ErrorKind::BrokenPipe)
+    }
+
+    fn scripted_manager_with_error(
+        responses: Vec<Vec<u8>>,
+        idle_error: io::ErrorKind,
+    ) -> (ReaderManager, Arc<Mutex<Vec<Vec<u8>>>>) {
+        let writes = Arc::new(Mutex::new(Vec::new()));
+        let manager = ReaderManager::default();
+        manager.0.lock().unwrap().session = Some(Session {
+            port: Box::new(ScriptedPort {
+                responses: responses.into(),
+                incoming: Default::default(),
+                idle_error,
+                writes: writes.clone(),
+            }),
+            info: ReaderConnection {
+                port_name: "MOCK".into(),
+                baud_rate: 115_200,
+                chip: "PN532",
+                firmware_version: "1.6".into(),
+                support: 7,
+            },
+        });
+        (manager, writes)
+    }
+
+    fn known_key_request() -> ReadRequest {
+        ReadRequest {
+            uid: "12345678".into(),
+            mode: "classic".into(),
+            start: 4,
+            count: 1,
+            key_type: Some("A".into()),
+            key: Some("112233445566".into()),
+        }
+    }
+
+    #[test]
+    fn write_transport_timeout_preserves_uncertainty_and_closes_the_session() {
+        let original = {
+            let mut bytes = vec![0];
+            bytes.extend([0x11; 16]);
+            bytes
+        };
+        let (manager, writes) = scripted_manager_with_error(
+            vec![
+                response(0x33, &[]),
+                response(0x4b, &[1, 1, 0, 4, 8, 4, 0x12, 0x34, 0x56, 0x78]),
+                response(0x41, &[0]),
+                response(0x41, &original),
+                pn532::ACK.to_vec(),
+            ],
+            io::ErrorKind::TimedOut,
+        );
+        let request = WriteRequest {
+            uid: "12345678".into(),
+            mode: "classic".into(),
+            address: 4,
+            hex: "AA".repeat(16),
+            expected_hex: "11".repeat(16),
+            key_type: Some("A".into()),
+            key: Some("112233445566".into()),
+            confirmed: true,
+        };
+        let result = write_connected_card(&manager, &request).unwrap();
+        assert!(result.write_attempted);
+        assert!(!result.verified);
+        assert_eq!(
+            result.before_hex.as_deref(),
+            Some("11111111111111111111111111111111")
+        );
+        assert!(result.after_hex.is_none());
+        assert!(result.error.unwrap().contains("超时"));
+        assert!(manager.0.lock().unwrap().session.is_none());
+        assert_eq!(
+            writes.lock().unwrap().len(),
+            5,
+            "never send release or retry after losing response boundary"
+        );
+    }
+
+    #[test]
+    fn card_commands_require_an_active_session() {
+        let manager = ReaderManager::default();
+        assert!(
+            scan_connected_card(&manager)
+                .unwrap_err()
+                .contains("未连接")
+        );
+        assert!(
+            read_connected_card(&manager, &known_key_request())
+                .unwrap_err()
+                .contains("未连接")
+        );
+    }
+
+    #[test]
+    fn dictionary_transport_failure_invalidates_session_without_retry_or_release() {
+        let (manager, writes) = scripted_manager(vec![
+            response(0x33, &[]),
+            response(0x4b, &[1, 1, 0, 4, 8, 4, 0x12, 0x34, 0x56, 0x78]),
+            // RF-off fails at transport level: never issue RF-on, auth or release.
+        ]);
+        let request = crate::dictionary::DictionaryRequest {
+            run_id: "test-run".into(),
+            uid: "12345678".into(),
+            start_sector: 0,
+            sector_count: 1,
+            use_common_keys: true,
+            keys: vec![],
+            confirmed: true,
+        };
+        let result = with_card_session(&manager, |exchange| {
+            crate::dictionary::check(&request, exchange, &|| false, &mut |_| {})
+        })
+        .unwrap();
+        assert!(!result.dump.complete);
+        assert_eq!(result.attempts, 0);
+        assert!(result.sectors[0].key_a.is_none());
+        assert!(result.error.is_some());
+        assert!(manager.0.lock().unwrap().session.is_none());
+        assert_eq!(writes.lock().unwrap().len(), 3);
+    }
+
+    #[test]
+    fn no_card_keeps_the_checked_serial_session() {
+        let (manager, writes) = scripted_manager(vec![response(0x33, &[]), response(0x4b, &[0])]);
+        assert!(scan_connected_card(&manager).unwrap().is_none());
+        let state = manager.0.lock().unwrap();
+        assert!(state.session.is_some());
+        assert!(state.connection_error.is_none());
+        assert_eq!(writes.lock().unwrap().len(), 2);
+    }
+
+    #[test]
+    fn authentication_failure_is_a_card_error_and_session_remains_usable() {
+        let (manager, writes) = scripted_manager(vec![
+            response(0x33, &[]),
+            response(0x4b, &[1, 1, 0, 4, 8, 4, 0x12, 0x34, 0x56, 0x78]),
+            response(0x41, &[0x14]),
+            response(0x53, &[0]),
+        ]);
+        let dump = read_connected_card(&manager, &known_key_request()).unwrap();
+        assert!(!dump.complete);
+        assert!(dump.error.unwrap().contains("认证失败"));
+        assert!(manager.0.lock().unwrap().session.is_some());
+        assert_eq!(writes.lock().unwrap().len(), 4);
+    }
+
+    #[test]
+    fn broken_stream_drops_session_and_does_not_send_release_into_unknown_response() {
+        let (manager, writes) = scripted_manager(vec![
+            response(0x33, &[]),
+            response(0x4b, &[1, 1, 0, 4, 8, 4, 0x12, 0x34, 0x56, 0x78]),
+        ]);
+        let dump = read_connected_card(&manager, &known_key_request()).unwrap();
+        assert!(!dump.complete);
+        assert!(dump.rows.is_empty());
+        let state = manager.0.lock().unwrap();
+        assert!(state.session.is_none());
+        assert!(
+            state
+                .connection_error
+                .as_ref()
+                .unwrap()
+                .contains("重新连接")
+        );
+        assert_eq!(writes.lock().unwrap().len(), 3);
+    }
+
+    #[test]
+    fn silent_port_deadline_invalidates_session_without_sending_another_command() {
+        let (manager, writes) =
+            scripted_manager_with_error(vec![pn532::ACK.to_vec()], io::ErrorKind::TimedOut);
+        assert!(scan_connected_card(&manager).unwrap_err().contains("超时"));
+        assert!(manager.0.lock().unwrap().session.is_none());
+        assert_eq!(writes.lock().unwrap().len(), 1);
+    }
+
+    #[test]
+    fn invalid_frame_drops_session_before_another_card_command_can_start() {
+        let mut bad = response(0x33, &[]);
+        *bad.last_mut().unwrap() = 1;
+        let (manager, writes) = scripted_manager(vec![bad]);
+        assert!(scan_connected_card(&manager).is_err());
+        assert!(
+            scan_connected_card(&manager)
+                .unwrap_err()
+                .contains("未连接")
+        );
+        assert!(manager.0.lock().unwrap().session.is_none());
+        assert_eq!(writes.lock().unwrap().len(), 1);
+    }
 
     fn describe_connected_port(product: &str) -> SerialDevice {
         describe_port(SerialPortInfo {

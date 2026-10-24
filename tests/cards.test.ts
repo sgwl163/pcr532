@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { makeReadRequest, readCapability, spacedHex, type CardInfo, type ReadSelection } from "../src/lib/cards.ts";
+import { makeReadRequest, makeWriteRequest, writableAddress, readCapability, spacedHex, type CardInfo, type ReadSelection } from "../src/lib/cards.ts";
 
 const card: CardInfo = { uid: "12345678", uidLength: 4, atqa: "0004", sak: "08", family: "classic1k", typeName: "MIFARE Classic 1K（初步识别）" };
 const selection: ReadSelection = { start: "4", count: "2", keyType: "B", key: "112233445566" };
@@ -47,6 +47,32 @@ test("Type 2 omits credentials and stays inside the first 16 pages", () => {
   assert.equal(request.keyType, null);
   assert.throws(() => makeReadRequest(type2, { ...selection, start: "15" }), /0–15/);
   assert.throws(() => makeReadRequest({ ...card, family: "unknown" }, selection), /仅支持识别/);
+});
+
+test("write policy protects manufacturer blocks, all sector trailers and Type 2 reserved pages", () => {
+  for (const address of [0, 3, 7, 63, 127, 143, 159, 255, 256, -1, 1.5]) {
+    assert.equal(writableAddress({ ...card, family: "classic4k" }, address), false);
+  }
+  for (const address of [1, 4, 126, 128, 142, 144, 254]) {
+    assert.equal(writableAddress({ ...card, family: "classic4k" }, address), true);
+  }
+  for (const address of [0, 1, 2, 3, 16]) assert.equal(writableAddress({ ...card, family: "type2" }, address), false);
+  assert.equal(writableAddress({ ...card, family: "type2" }, 15), true);
+});
+
+test("writes require a complete original read, explicit confirmation and exact-length data", () => {
+  const dump = { card, mode: "classic" as const, rows: [{ address: 4, hex: "11".repeat(16) }], complete: true, error: null };
+  const write = { address: 4, hex: "AA ".repeat(16), keyType: "A", key: "112233445566", confirmed: true };
+  const request = makeWriteRequest(card, dump, write);
+  assert.equal(request.hex, "AA".repeat(16));
+  assert.equal(request.expectedHex, "11".repeat(16));
+  assert.throws(() => makeWriteRequest(card, dump, { ...write, confirmed: false }), /确认/);
+  assert.throws(() => makeWriteRequest(card, dump, { ...write, address: 3 }), /受保护/);
+  assert.throws(() => makeWriteRequest(card, dump, { ...write, hex: "AA" }), /32/);
+  assert.throws(() => makeWriteRequest(card, { ...dump, complete: false }, write), /重新读取/);
+  assert.throws(() => makeWriteRequest(card, { ...dump, rows: [] }, write), /原数据/);
+  assert.throws(() => makeWriteRequest(card, dump, { ...write, key: "" }), /密钥/);
+  assert.throws(() => makeWriteRequest(card, { ...dump, card: { ...card, uid: "99887766" } }, write), /重新读取/);
 });
 
 test("hex display groups bytes without changing their order", () => {

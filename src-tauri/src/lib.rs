@@ -1,4 +1,5 @@
 mod cards;
+mod dictionary;
 mod pn532;
 mod reader;
 
@@ -26,11 +27,18 @@ pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
         .manage(reader::ReaderManager::default())
+        .manage(dictionary::DictionaryManager::default())
         .invoke_handler(tauri::generate_handler![
             get_app_info,
             reader::get_device_snapshot,
             reader::connect_reader,
             reader::disconnect_reader,
+            reader::scan_card,
+            reader::read_card,
+            reader::write_card,
+            dictionary::check_dictionary,
+            dictionary::dictionary_progress,
+            dictionary::cancel_dictionary,
         ])
         .run(tauri::generate_context!())
         .expect("error while running PCR532 Desktop");

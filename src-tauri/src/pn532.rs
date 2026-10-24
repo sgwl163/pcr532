@@ -1,4 +1,4 @@
-//! PN532 UART framing for initialization, identification and read-only card operations.
+//! PN532 UART framing for initialization, identification and restricted card operations.
 
 use crate::cards::CardTarget;
 
@@ -10,19 +10,29 @@ pub fn command(payload: &[u8]) -> Result<Vec<u8>, String> {
     let len = (payload.len() + 1) as u8;
     let mut bytes = vec![0, 0, 255, len, len.wrapping_neg(), 0xd4];
     bytes.extend_from_slice(payload);
-    bytes.push(payload.iter().fold(0xd4_u8, |sum, byte| sum.wrapping_add(*byte)).wrapping_neg());
+    bytes.push(
+        payload
+            .iter()
+            .fold(0xd4_u8, |sum, byte| sum.wrapping_add(*byte))
+            .wrapping_neg(),
+    );
     bytes.push(0);
     Ok(bytes)
 }
 
 /// Outer None means incomplete UART frame; inner None is a confirmed no-card response.
+#[cfg(test)]
 pub fn parse_target(bytes: &[u8]) -> Result<Option<Option<CardTarget>>, String> {
-    let Some(data) = parse_response(bytes, 0x4b)? else { return Ok(None); };
+    let Some(data) = parse_response(bytes, 0x4b)? else {
+        return Ok(None);
+    };
     parse_target_payload(&data).map(Some)
 }
 
 pub fn parse_target_payload(data: &[u8]) -> Result<Option<CardTarget>, String> {
-    if data == [0] { return Ok(None); }
+    if data == [0] {
+        return Ok(None);
+    }
     if data.len() < 6 || data[0] != 1 || data[1] != 1 {
         return Err("寻卡响应无效：仅支持一个 ISO 14443A 目标".into());
     }
@@ -31,12 +41,17 @@ pub fn parse_target_payload(data: &[u8]) -> Result<Option<CardTarget>, String> {
         return Err("卡片 UID 长度无效或响应不完整".into());
     }
     Ok(Some(CardTarget {
-        number: data[1], atqa: [data[2], data[3]], sak: data[4], uid: data[6..6 + length].to_vec(),
+        number: data[1],
+        atqa: [data[2], data[3]],
+        sak: data[4],
+        uid: data[6..6 + length].to_vec(),
     }))
 }
 
 pub fn exchange_data(data: &[u8], expected_length: usize) -> Result<&[u8], String> {
-    let Some((&status, payload)) = data.split_first() else { return Err("卡片响应缺少状态码".into()); };
+    let Some((&status, payload)) = data.split_first() else {
+        return Err("卡片响应缺少状态码".into());
+    };
     if status != 0 {
         return Err(match status & 0x3f {
             0x01 => "卡片未应答，可能已移开".into(),
@@ -46,7 +61,10 @@ pub fn exchange_data(data: &[u8], expected_length: usize) -> Result<&[u8], Strin
         });
     }
     if payload.len() != expected_length {
-        return Err(format!("卡片响应长度不符：期望 {expected_length} 字节，收到 {} 字节", payload.len()));
+        return Err(format!(
+            "卡片响应长度不符：期望 {expected_length} 字节，收到 {} 字节",
+            payload.len()
+        ));
     }
     Ok(payload)
 }
@@ -146,7 +164,9 @@ mod tests {
         let no_card = frame(&[0xd5, 0x4b, 0]);
         assert_eq!(parse_target(&no_card).unwrap(), Some(None));
         let mut response = ACK.to_vec();
-        response.extend(frame(&[0xd5, 0x4b, 1, 1, 0, 4, 8, 4, 0x12, 0x34, 0x56, 0x78]));
+        response.extend(frame(&[
+            0xd5, 0x4b, 1, 1, 0, 4, 8, 4, 0x12, 0x34, 0x56, 0x78,
+        ]));
         for end in 0..response.len() {
             assert_eq!(parse_target(&response[..end]).unwrap(), None);
         }
@@ -159,7 +179,10 @@ mod tests {
 
     #[test]
     fn encodes_known_target_command_and_validates_exchange_status_and_lengths() {
-        assert_eq!(command(&[0x4a, 1, 0]).unwrap(), [0, 0, 255, 4, 252, 212, 74, 1, 0, 225, 0]);
+        assert_eq!(
+            command(&[0x4a, 1, 0]).unwrap(),
+            [0, 0, 255, 4, 252, 212, 74, 1, 0, 225, 0]
+        );
         assert!(command(&[]).is_err());
         assert!(command(&[0; 254]).is_err());
         assert_eq!(exchange_data(&[0, 1, 2], 2).unwrap(), [1, 2]);

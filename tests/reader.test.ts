@@ -1,6 +1,13 @@
+import type { DictionaryResult } from "../src/lib/dictionary.ts";
 import assert from "node:assert/strict";
 import test from "node:test";
-import { type CardDump, type CardInfo, type ReadRequest } from "../src/lib/cards.ts";
+import {
+  type CardDump,
+  type CardInfo,
+  type ReadRequest,
+  type WriteRequest,
+  type WriteResult,
+} from "../src/lib/cards.ts";
 import {
   BAUD_RATES,
   choosePort,
@@ -14,43 +21,133 @@ import {
 } from "../src/lib/reader.ts";
 
 const port: SerialDevice = {
-  portName: "COM7", label: "USB-SERIAL CH340 (COM7)", transport: "usb",
-  vid: "1A86", pid: "7523", manufacturer: "wch.cn", serialNumber: null,
+  portName: "COM7",
+  label: "USB-SERIAL CH340 (COM7)",
+  transport: "usb",
+  vid: "1A86",
+  pid: "7523",
+  manufacturer: "wch.cn",
+  serialNumber: null,
   isCandidate: true,
 };
 const connection: ReaderConnection = {
-  portName: "COM7", baudRate: 115200, chip: "PN532", firmwareVersion: "1.6", support: 7,
+  portName: "COM7",
+  baudRate: 115200,
+  chip: "PN532",
+  firmwareVersion: "1.6",
+  support: 7,
 };
-const detected: DeviceSnapshot = { ports: [port], connection: null, connectionError: null };
+const detected: DeviceSnapshot = {
+  ports: [port],
+  connection: null,
+  connectionError: null,
+};
 const connected: DeviceSnapshot = { ...detected, connection };
-const card: CardInfo = { uid: "12345678", uidLength: 4, atqa: "0004", sak: "08", family: "classic1k", typeName: "MIFARE Classic 1K（初步识别）" };
+const card: CardInfo = {
+  uid: "12345678",
+  uidLength: 4,
+  atqa: "0004",
+  sak: "08",
+  family: "classic1k",
+  typeName: "MIFARE Classic 1K（初步识别）",
+};
 function readRequest(): ReadRequest {
-  return { uid: card.uid, mode: "classic", start: 4, count: 1, keyType: "A", key: "112233445566" };
+  return {
+    uid: card.uid,
+    mode: "classic",
+    start: 4,
+    count: 1,
+    keyType: "A",
+    key: "112233445566",
+  };
+}
+
+function writeRequest(): WriteRequest {
+  return {
+    uid: card.uid,
+    mode: "classic",
+    address: 4,
+    hex: "AA".repeat(16),
+    expectedHex: "00".repeat(16),
+    keyType: "A",
+    key: "112233445566",
+    confirmed: true,
+  };
 }
 
 function fixture() {
   let snapshot = detected;
   const calls: string[] = [];
   const api: ReaderApi = {
-    async snapshot() { calls.push("snapshot"); return snapshot; },
+    async snapshot() {
+      calls.push("snapshot");
+      return snapshot;
+    },
     async connect(name, baud) {
       calls.push(`connect:${name}:${baud}`);
-      snapshot = { ...connected, connection: { ...connection, baudRate: baud } };
+      snapshot = {
+        ...connected,
+        connection: { ...connection, baudRate: baud },
+      };
       return snapshot.connection!;
     },
-    async disconnect() { calls.push("disconnect"); snapshot = detected; },
-    async scanCard() { calls.push("scanCard"); return card; },
+    async disconnect() {
+      calls.push("disconnect");
+      snapshot = detected;
+    },
+    async scanCard() {
+      calls.push("scanCard");
+      return card;
+    },
+    async checkDictionary() {
+      throw new Error("not configured");
+    },
+    async dictionaryProgress() {
+      return null;
+    },
+    async cancelDictionary() {
+      return true;
+    },
+    async writeCard(request) {
+      calls.push(`writeCard:${request.address}`);
+      return {
+        card,
+        mode: request.mode,
+        address: request.address,
+        beforeHex: request.expectedHex,
+        afterHex: request.hex,
+        writeAttempted: true,
+        verified: true,
+        error: null,
+      };
+    },
     async readCard(request) {
       calls.push(`readCard:${request.uid}`);
-      return { card, mode: request.mode, rows: [{ address: request.start, hex: "00".repeat(16) }], complete: true, error: null };
+      return {
+        card,
+        mode: request.mode,
+        rows: [{ address: request.start, hex: "00".repeat(16) }],
+        complete: true,
+        error: null,
+      };
     },
   };
-  return { api, calls, setSnapshot(value: DeviceSnapshot) { snapshot = value; } };
+  return {
+    api,
+    calls,
+    setSnapshot(value: DeviceSnapshot) {
+      snapshot = value;
+    },
+  };
 }
 
 function deferred<T>() {
-  let resolve: (value: T) => void = () => { throw new Error("not initialized"); };
-  const promise = new Promise<T>((done) => { resolve = done; });
+  let resolve: (value: T) => void = () => {
+    throw new Error("not initialized");
+  };
+  const promise = new Promise<T>((done) => {
+    resolve = done;
+  });
   return { promise, resolve };
 }
 
@@ -86,7 +183,10 @@ test("verified connection uses selected baud rate and reports chip and firmware"
   await reader.connect();
   assert.ok(f.calls.includes("connect:COM7:9600"));
   assert.equal(readerStatus(reader.getState()).title, "已连接 PN532");
-  assert.match(readerStatus(reader.getState()).detail, /COM7 · 9600 baud · 固件 1.6/);
+  assert.match(
+    readerStatus(reader.getState()).detail,
+    /COM7 · 9600 baud · 固件 1.6/,
+  );
   reader.selectPort("COM9");
   reader.selectBaud(115200);
   assert.equal(reader.getState().selectedPort, "COM7");
@@ -109,7 +209,9 @@ test("failed scan never displays a stale connection as currently verified", asyn
   const reader = new ReaderController(f.api, { autoConnect: false });
   await reader.refresh();
   await reader.connect();
-  f.api.snapshot = async () => { throw new Error("枚举失败"); };
+  f.api.snapshot = async () => {
+    throw new Error("枚举失败");
+  };
   await reader.refresh();
   assert.equal(readerStatus(reader.getState()).kind, "error");
   assert.match(readerStatus(reader.getState()).detail, /枚举失败/);
@@ -121,7 +223,11 @@ test("removal clears connection and reinsertion does not claim a successful hand
   const reader = new ReaderController(f.api, { autoConnect: false });
   await reader.refresh();
   await reader.connect();
-  f.setSnapshot({ ports: [], connection: null, connectionError: "COM7 已移除" });
+  f.setSnapshot({
+    ports: [],
+    connection: null,
+    connectionError: "COM7 已移除",
+  });
   await reader.refresh();
   assert.equal(reader.getState().selectedPort, "");
   assert.equal(readerStatus(reader.getState()).kind, "error");
@@ -133,7 +239,9 @@ test("removal clears connection and reinsertion does not claim a successful hand
 
 test("connection errors remain visible until retry or changing selection", async () => {
   const f = fixture();
-  f.api.connect = async () => { throw new Error("串口被占用"); };
+  f.api.connect = async () => {
+    throw new Error("串口被占用");
+  };
   const reader = new ReaderController(f.api, { autoConnect: false });
   await reader.refresh();
   await reader.connect();
@@ -145,7 +253,9 @@ test("connection errors remain visible until retry or changing selection", async
 
 test("disconnect failure is visible even when the last connection remains active", async () => {
   const f = fixture();
-  f.api.disconnect = async () => { throw new Error("后端不可用"); };
+  f.api.disconnect = async () => {
+    throw new Error("后端不可用");
+  };
   const reader = new ReaderController(f.api, { autoConnect: false });
   await reader.refresh();
   await reader.connect();
@@ -158,7 +268,10 @@ test("disconnect failure is visible even when the last connection remains active
 test("polling is deduplicated", async () => {
   const f = fixture();
   const pending = deferred<DeviceSnapshot>();
-  f.api.snapshot = async () => { f.calls.push("snapshot"); return pending.promise; };
+  f.api.snapshot = async () => {
+    f.calls.push("snapshot");
+    return pending.promise;
+  };
   const reader = new ReaderController(f.api, { autoConnect: false });
   const first = reader.refresh();
   const second = reader.refresh();
@@ -177,10 +290,15 @@ test("a pending scan cannot reset a queued connection to idle", async () => {
   await Promise.resolve();
   const action = reader.connect();
   const activities: string[] = [];
-  const unsubscribe = reader.subscribe(() => { activities.push(reader.getState().activity); });
+  const unsubscribe = reader.subscribe(() => {
+    activities.push(reader.getState().activity);
+  });
   pending.resolve(detected);
   await scan;
-  assert.ok(!activities.includes("idle"), "poll must not report idle before the queued action completes");
+  assert.ok(
+    !activities.includes("idle"),
+    "poll must not report idle before the queued action completes",
+  );
   f.api.snapshot = async () => connected;
   await action;
   unsubscribe();
@@ -190,7 +308,10 @@ test("a pending scan cannot reset a queued connection to idle", async () => {
 test("duplicate actions and refreshes cannot race a pending connection", async () => {
   const f = fixture();
   const pending = deferred<ReaderConnection>();
-  f.api.connect = async () => { f.calls.push("connect"); return pending.promise; };
+  f.api.connect = async () => {
+    f.calls.push("connect");
+    return pending.promise;
+  };
   const reader = new ReaderController(f.api, { autoConnect: false });
   await reader.refresh();
   const first = reader.connect();
@@ -205,7 +326,10 @@ test("duplicate actions and refreshes cannot race a pending connection", async (
 
 test("non-USB ports are described without claiming USB recognition", () => {
   const state = initialReaderState();
-  state.snapshot = { ...detected, ports: [{ ...port, transport: "unknown", isCandidate: false }] };
+  state.snapshot = {
+    ...detected,
+    ports: [{ ...port, transport: "unknown", isCandidate: false }],
+  };
   assert.ok(!readerStatus(state).detail.includes("USB 设备已被系统识别"));
 });
 
@@ -220,7 +344,10 @@ test("startup automatically verifies one candidate at 115200", async () => {
 test("automatic connection waits for firmware confirmation before reporting connected", async () => {
   const f = fixture();
   const pending = deferred<ReaderConnection>();
-  f.api.connect = async () => { f.calls.push("connect"); return pending.promise; };
+  f.api.connect = async () => {
+    f.calls.push("connect");
+    return pending.promise;
+  };
   const reader = new ReaderController(f.api);
   const refresh = reader.refresh();
   for (let i = 0; i < 8; i++) await Promise.resolve();
@@ -233,7 +360,10 @@ test("automatic connection waits for firmware confirmation before reporting conn
 });
 
 test("multiple or unknown candidates require explicit port selection", async () => {
-  for (const ports of [[port, { ...port, portName: "COM8" }], [{ ...port, isCandidate: false }]]) {
+  for (const ports of [
+    [port, { ...port, portName: "COM8" }],
+    [{ ...port, isCandidate: false }],
+  ]) {
     const f = fixture();
     f.setSnapshot({ ...detected, ports });
     const reader = new ReaderController(f.api);
@@ -245,7 +375,10 @@ test("multiple or unknown candidates require explicit port selection", async () 
 
 test("failed automatic handshake is attempted once, with manual retry available", async () => {
   const f = fixture();
-  f.api.connect = async () => { f.calls.push("failed-connect"); throw new Error("串口被占用"); };
+  f.api.connect = async () => {
+    f.calls.push("failed-connect");
+    throw new Error("串口被占用");
+  };
   const reader = new ReaderController(f.api);
   await reader.refresh();
   await reader.refresh();
@@ -293,7 +426,12 @@ test("no card is a successful identification result and clears the previous data
   await reader.readCard(readRequest());
   f.api.scanCard = async () => null;
   await reader.findCard();
-  assert.deepEqual(reader.getState().cardState, { card: null, dump: null, error: null, checkedAt: reader.getState().cardState.checkedAt });
+  assert.deepEqual(reader.getState().cardState, {
+    card: null,
+    dump: null,
+    error: null,
+    checkedAt: reader.getState().cardState.checkedAt,
+  });
   assert.ok(reader.getState().cardState.checkedAt);
 });
 
@@ -303,7 +441,10 @@ test("card read is serialized with heartbeat and duplicate actions are ignored",
   await reader.refresh();
   await reader.findCard();
   const pending = deferred<CardDump>();
-  f.api.readCard = async () => { f.calls.push("read"); return pending.promise; };
+  f.api.readCard = async () => {
+    f.calls.push("read");
+    return pending.promise;
+  };
   const request = readRequest();
   const result = reader.readCard(request);
   await Promise.resolve();
@@ -314,7 +455,13 @@ test("card read is serialized with heartbeat and duplicate actions are ignored",
   reader.clearCard();
   assert.equal(reader.getState().activity, "readingCard");
   assert.equal(f.calls.at(-1), "read");
-  pending.resolve({ card, mode: "classic", rows: [{ address: 4, hex: "00".repeat(16) }], complete: true, error: null });
+  pending.resolve({
+    card,
+    mode: "classic",
+    rows: [{ address: 4, hex: "00".repeat(16) }],
+    complete: true,
+    error: null,
+  });
   await result;
   assert.deepEqual(f.calls.slice(-2), ["read", "snapshot"]);
   assert.equal(reader.getState().cardState.dump?.complete, true);
@@ -322,9 +469,40 @@ test("card read is serialized with heartbeat and duplicate actions are ignored",
   assert.ok(!JSON.stringify(reader.getState()).includes("112233445566"));
 });
 
+test("queued reads own a request copy and clear credentials before the following heartbeat", async () => {
+  const f = fixture();
+  const reader = new ReaderController(f.api);
+  await reader.refresh();
+  await reader.findCard();
+  const request = readRequest();
+  let received: ReadRequest | undefined;
+  f.api.readCard = async (value) => {
+    received = value;
+    assert.equal(value.key, "112233445566");
+    assert.equal(value.start, 4);
+    return { card, mode: "classic", rows: [], complete: true, error: null };
+  };
+  f.api.snapshot = async () => {
+    if (received) assert.equal(received.key, null);
+    return connected;
+  };
+  const result = reader.readCard(request);
+  request.key = "665544332211";
+  request.start = 10;
+  await result;
+  assert.notEqual(received, request);
+  assert.equal(request.key, null);
+});
+
 test("partial read preserves rows and never becomes a successful complete dump", async () => {
   const f = fixture();
-  f.api.readCard = async () => ({ card, mode: "classic", rows: [{ address: 4, hex: "00".repeat(16) }], complete: false, error: "地址 5：卡片未应答" });
+  f.api.readCard = async () => ({
+    card,
+    mode: "classic",
+    rows: [{ address: 4, hex: "00".repeat(16) }],
+    complete: false,
+    error: "地址 5：卡片未应答",
+  });
   const reader = new ReaderController(f.api);
   await reader.refresh();
   await reader.findCard();
@@ -357,8 +535,16 @@ test("disconnect, heartbeat failure and removal clear card identity and data", a
     await reader.findCard();
     if (action === "disconnect") await reader.disconnect();
     else {
-      if (action === "error") f.api.snapshot = async () => { throw new Error("枚举失败"); };
-      else f.setSnapshot({ ports: [], connection: null, connectionError: "已拔出" });
+      if (action === "error")
+        f.api.snapshot = async () => {
+          throw new Error("枚举失败");
+        };
+      else
+        f.setSnapshot({
+          ports: [],
+          connection: null,
+          connectionError: "已拔出",
+        });
       await reader.refresh();
     }
     assert.equal(reader.getState().cardState.card, null);
@@ -373,12 +559,353 @@ test("mismatched request never reaches the backend and failed activation require
   await reader.findCard();
   await reader.readCard({ ...readRequest(), uid: "99887766" });
   assert.ok(!f.calls.some((call) => call.startsWith("readCard:")));
-  f.api.readCard = async () => { throw new Error("卡片已更换"); };
+  f.api.readCard = async () => {
+    throw new Error("卡片已更换");
+  };
   const request = readRequest();
   await reader.readCard(request);
   assert.equal(reader.getState().cardState.card, null);
   assert.match(reader.getState().cardState.error ?? "", /已更换/);
   assert.equal(request.key, null);
+});
+
+test("writes require a current complete original read and invalidate it after writing", async () => {
+  const f = fixture();
+  const reader = new ReaderController(f.api);
+  await reader.refresh();
+  await reader.findCard();
+  await reader.writeCard(writeRequest());
+  assert.ok(!f.calls.some((call) => call.startsWith("writeCard:")));
+  await reader.readCard(readRequest());
+  const request = writeRequest();
+  await reader.writeCard(request);
+  assert.equal(request.key, null);
+  assert.equal(reader.getState().lastWrite?.verified, true);
+  assert.equal(reader.getState().cardState.dump, null);
+  await reader.writeCard(writeRequest());
+  assert.equal(
+    f.calls.filter((call) => call.startsWith("writeCard:")).length,
+    1,
+  );
+  await reader.disconnect();
+  assert.equal(
+    reader.getState().lastWrite?.verified,
+    true,
+    "last write is history retained across disconnect",
+  );
+  reader.clearCard();
+  assert.equal(reader.getState().lastWrite, null);
+});
+
+test("write is serialized, duplicate calls are ignored and credentials never enter state", async () => {
+  const f = fixture();
+  const reader = new ReaderController(f.api);
+  await reader.refresh();
+  await reader.findCard();
+  await reader.readCard(readRequest());
+  const pending = deferred<WriteResult>();
+  let received: WriteRequest | undefined;
+  f.api.writeCard = async (request) => {
+    received = request;
+    f.calls.push("write");
+    return pending.promise;
+  };
+  const request = writeRequest();
+  const result = reader.writeCard(request);
+  await Promise.resolve();
+  await reader.writeCard(writeRequest());
+  await reader.refresh();
+  await reader.disconnect();
+  assert.equal(reader.getState().activity, "writingCard");
+  assert.ok(!JSON.stringify(reader.getState()).includes("112233445566"));
+  pending.resolve({
+    card,
+    mode: "classic",
+    address: 4,
+    beforeHex: "00".repeat(16),
+    afterHex: "AA".repeat(16),
+    writeAttempted: true,
+    verified: true,
+    error: null,
+  });
+  await result;
+  assert.equal(f.calls.filter((call) => call === "write").length, 1);
+  assert.equal(received?.key, null);
+  assert.equal(request.key, null);
+});
+
+test("a transport disconnect preserves an unverified write outcome instead of claiming failure without change", async () => {
+  const f = fixture();
+  const reader = new ReaderController(f.api);
+  await reader.refresh();
+  await reader.findCard();
+  await reader.readCard(readRequest());
+  f.api.writeCard = async () => {
+    f.setSnapshot({
+      ports: [],
+      connection: null,
+      connectionError: "设备已拔出",
+    });
+    return {
+      card,
+      mode: "classic",
+      address: 4,
+      beforeHex: "00".repeat(16),
+      afterHex: null,
+      writeAttempted: true,
+      verified: false,
+      error: "写入超时",
+    };
+  };
+  await reader.writeCard(writeRequest());
+  assert.equal(reader.getState().snapshot?.connection, null);
+  assert.equal(reader.getState().lastWrite?.writeAttempted, true);
+  assert.equal(reader.getState().lastWrite?.verified, false);
+  assert.match(reader.getState().lastWrite?.error ?? "", /超时/);
+  assert.equal(reader.getState().cardState.dump, null);
+});
+
+test("IPC rejection after submitting a write is explicitly an unknown outcome", async () => {
+  const f = fixture();
+  const reader = new ReaderController(f.api);
+  await reader.refresh();
+  await reader.findCard();
+  await reader.readCard(readRequest());
+  f.api.writeCard = async () => {
+    throw new Error("IPC disconnected");
+  };
+  await reader.writeCard(writeRequest());
+  assert.equal(reader.getState().lastWrite?.verified, false);
+  assert.match(reader.getState().lastWrite?.error ?? "", /结果未知/);
+  assert.equal(reader.getState().cardState.card, null);
+});
+
+test("session logs describe operations without recording keys or payloads and can be cleared", async () => {
+  const f = fixture();
+  const reader = new ReaderController(f.api, { autoConnect: false });
+  await reader.refresh();
+  await reader.connect();
+  await reader.findCard();
+  await reader.readCard(readRequest());
+  await reader.writeCard(writeRequest());
+  const logs = reader.getState().logs;
+  assert.ok(logs.some((entry) => entry.message.includes("读取完成")));
+  assert.ok(logs.some((entry) => entry.message.includes("读回校验")));
+  const text = JSON.stringify(logs);
+  assert.ok(!text.includes("112233445566"));
+  assert.ok(!text.includes("AA".repeat(16)));
+  assert.ok(!text.includes("00".repeat(16)));
+  for (let i = 0; i < 110; i++) await reader.findCard();
+  assert.equal(reader.getState().logs.length, 200);
+  await reader.disconnect();
+  assert.equal(reader.getState().logs.length, 200);
+  reader.clearLogs();
+  assert.deepEqual(reader.getState().logs, []);
+});
+
+test("dictionary work blocks serial commands while allowing progress and run-specific cancellation", async () => {
+  const f = fixture();
+  const pending = deferred<DictionaryResult>();
+  f.api.checkDictionary = async () => {
+    f.calls.push("dictionary");
+    return pending.promise;
+  };
+  f.api.dictionaryProgress = async (run) => {
+    f.calls.push(`progress:${run}`);
+    return {
+      attempts: 1,
+      maxAttempts: 2,
+      completedSectors: 0,
+      totalSectors: 1,
+      currentSector: 0,
+      foundKeys: 1,
+      phase: "reading",
+    };
+  };
+  f.api.cancelDictionary = async (run) => {
+    f.calls.push(`cancel:${run}`);
+    return true;
+  };
+  const reader = new ReaderController(f.api, { autoConnect: false });
+  await reader.refresh();
+  await reader.connect();
+  await reader.findCard();
+  const request = {
+    runId: "dict-run",
+    uid: card.uid,
+    startSector: 0,
+    sectorCount: 1,
+    useCommonKeys: false,
+    keys: ["112233445566"],
+    confirmed: true,
+  };
+  const operation = reader.checkDictionary(request);
+  await new Promise((resolve) => setImmediate(resolve));
+  assert.equal(reader.getState().activity, "checkingKeys");
+  const before = f.calls.length;
+  await reader.refresh();
+  await reader.readCard(readRequest());
+  await reader.disconnect();
+  reader.clearCard();
+  assert.equal(f.calls.length, before);
+  await reader.pollDictionary();
+  await reader.cancelDictionary();
+  assert.ok(f.calls.includes("progress:dict-run"));
+  assert.ok(f.calls.includes("cancel:dict-run"));
+  assert.equal(reader.getState().dictionary.cancelling, true);
+  pending.resolve({
+    dump: {
+      card,
+      mode: "classic",
+      rows: [{ address: 0, hex: "42".repeat(16) }],
+      complete: false,
+      error: "取消",
+    },
+    sectors: [
+      {
+        sector: 0,
+        keyA: "112233445566",
+        keyB: null,
+        keyAChecked: true,
+        keyBChecked: true,
+      },
+    ],
+    attempts: 1,
+    cancelled: true,
+    error: "取消",
+  });
+  await operation;
+  assert.equal(reader.getState().activity, "idle");
+  assert.equal(reader.getState().dictionary.result?.cancelled, true);
+  assert.equal(reader.getState().cardState.dump?.rows.length, 1);
+  assert.deepEqual(request.keys, []);
+  assert.ok(!JSON.stringify(reader.getState().logs).includes("112233445566"));
+  reader.clearCard();
+  assert.equal(reader.getState().dictionary.result, null);
+});
+
+test("dictionary results and sensitive keys are removed on rescan, disconnect and failed heartbeat", async () => {
+  for (const clear of ["rescan", "disconnect", "heartbeat"] as const) {
+    const f = fixture();
+    f.api.checkDictionary = async () => ({
+      dump: {
+        card,
+        mode: "classic",
+        rows: [],
+        complete: false,
+        error: "未命中",
+      },
+      sectors: [
+        {
+          sector: 0,
+          keyA: "112233445566",
+          keyB: null,
+          keyAChecked: true,
+          keyBChecked: true,
+        },
+      ],
+      attempts: 2,
+      cancelled: false,
+      error: null,
+    });
+    const reader = new ReaderController(f.api, { autoConnect: false });
+    await reader.refresh();
+    await reader.connect();
+    await reader.findCard();
+    await reader.checkDictionary({
+      runId: "run",
+      uid: card.uid,
+      startSector: 0,
+      sectorCount: 1,
+      useCommonKeys: true,
+      keys: [],
+      confirmed: true,
+    });
+    assert.ok(reader.getState().dictionary.result);
+    if (clear === "rescan") await reader.findCard();
+    else if (clear === "disconnect") await reader.disconnect();
+    else {
+      f.setSnapshot({ ...detected, connectionError: "断开" });
+      await reader.refresh();
+    }
+    assert.equal(reader.getState().dictionary.result, null);
+  }
+});
+
+test("failed cancellation leaves the job active and late progress cannot restore a finished job", async () => {
+  const f = fixture();
+  const pending = deferred<DictionaryResult>();
+  const progress = deferred<
+    import("../src/lib/dictionary.ts").DictionaryProgress | null
+  >();
+  f.api.checkDictionary = async () => pending.promise;
+  f.api.dictionaryProgress = async () => progress.promise;
+  f.api.cancelDictionary = async () => {
+    throw new Error("IPC failure");
+  };
+  const reader = new ReaderController(f.api, { autoConnect: false });
+  await reader.refresh();
+  await reader.connect();
+  await reader.findCard();
+  const operation = reader.checkDictionary({
+    runId: "run",
+    uid: card.uid,
+    startSector: 0,
+    sectorCount: 1,
+    useCommonKeys: true,
+    keys: [],
+    confirmed: true,
+  });
+  await new Promise((resolve) => setImmediate(resolve));
+  const poll = reader.pollDictionary();
+  await reader.cancelDictionary();
+  assert.equal(reader.getState().activity, "checkingKeys");
+  assert.equal(reader.getState().dictionary.cancelling, false);
+  assert.match(reader.getState().dictionary.error!, /取消请求失败/);
+  pending.resolve({
+    dump: { card, mode: "classic", rows: [], complete: false, error: "未命中" },
+    sectors: [],
+    attempts: 2,
+    cancelled: false,
+    error: null,
+  });
+  await operation;
+  progress.resolve({
+    attempts: 1,
+    maxAttempts: 2,
+    completedSectors: 0,
+    totalSectors: 1,
+    currentSector: 0,
+    foundKeys: 0,
+    phase: "checking",
+  });
+  await poll;
+  assert.equal(reader.getState().dictionary.runId, null);
+  assert.equal(reader.getState().dictionary.progress, null);
+  assert.equal(reader.getState().dictionary.result?.cancelled, false);
+});
+
+test("dictionary backend errors do not disclose keys or fabricate results", async () => {
+  const f = fixture();
+  f.api.checkDictionary = async () => {
+    throw new Error("secret 112233445566");
+  };
+  const reader = new ReaderController(f.api, { autoConnect: false });
+  await reader.refresh();
+  await reader.connect();
+  await reader.findCard();
+  await reader.checkDictionary({
+    runId: "run",
+    uid: card.uid,
+    startSector: 0,
+    sectorCount: 1,
+    useCommonKeys: false,
+    keys: ["112233445566"],
+    confirmed: true,
+  });
+  assert.equal(reader.getState().dictionary.result, null);
+  assert.match(reader.getState().dictionary.error!, /未完成/);
+  assert.ok(!JSON.stringify(reader.getState()).includes("112233445566"));
 });
 
 test("an interrupted connection is not probed repeatedly while the device remains present", async () => {
